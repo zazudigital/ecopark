@@ -52,7 +52,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.15;
   font-weight: 700;
-  color: #0C1229;
 }
 
 /* Modular type scale */
@@ -165,18 +164,7 @@ textarea:focus-visible {
   color: #283891;
 }
 
-/* Hero bottom gradient fade */
-.hero-fade::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 6rem;
-  background: linear-gradient(to bottom, transparent, #F5F7FC);
-  pointer-events: none;
-  z-index: 1;
-}
+/* Hero bottom gradient fade — disabled, stats sit at bottom */
 
 /* Green rule animate-in */
 @keyframes rule-grow {

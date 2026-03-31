@@ -10,24 +10,23 @@ interface Props {
 const { title, subtitle, showCta = true, compact = false, showStats = false } = Astro.props;
 ---
 
-<section class:list={['relative hero-fade', compact ? 'min-h-[50vh]' : 'min-h-[75vh]']}>
+<section class:list={['relative', compact ? 'min-h-[50vh]' : 'min-h-[80vh]']}>
   <!-- Background image -->
   <img src="/images/hero-logistics.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true" width="1400" height="800" />
-  <div class="absolute inset-0 bg-[#1a2766]/88"></div>
-  <div class:list={['relative z-[2] mx-auto flex max-w-7xl flex-col justify-end px-4 sm:px-6 lg:px-8', compact ? 'min-h-[50vh] pb-12 pt-32' : 'min-h-[75vh] pb-16 pt-40']}>
+  <!-- Clean dark overlay — enough to read white text, subtle image texture -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#0f1740]/92 via-[#152050]/90 to-[#0f1740]/95"></div>
+
+  <div class:list={['relative mx-auto flex max-w-7xl flex-col justify-end px-4 sm:px-6 lg:px-8', compact ? 'min-h-[50vh] pb-12 pt-32' : 'min-h-[80vh] pb-16 pt-40']}>
     <div class="max-w-3xl">
       <h1 class:list={[
-        'font-black leading-tight tracking-tight text-white',
-        compact ? 'text-3xl sm:text-4xl lg:text-5xl' : 'text-4xl sm:text-5xl lg:text-6xl'
-      ]}>
+        'leading-tight tracking-tight text-white',
+        compact ? 'text-3xl sm:text-4xl lg:text-5xl font-bold' : 'text-4xl sm:text-5xl lg:text-6xl font-black'
+      ]} style="color: white !important;">
         {title}
       </h1>
 
-      <!-- Green horizontal rule — animates width on load -->
-      <div class="mt-6 h-0.5 bg-secondary animate-rule"></div>
-
       <p class:list={[
-        'mt-6 max-w-2xl leading-relaxed text-white/80',
+        'mt-6 max-w-2xl leading-relaxed text-white/85',
         compact ? 'text-base lg:text-lg' : 'text-lg lg:text-xl'
       ]}>
         {subtitle}
@@ -37,7 +36,7 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
         <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row">
           <a
             href="/contact/"
-            class="inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-secondary-dark hover:border-secondary-dark"
+            class="inline-flex items-center gap-2 bg-secondary px-8 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-secondary-dark rounded-sm"
           >
             Vraag een offerte aan
             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -46,7 +45,7 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
           </a>
           <a
             href="/diensten/"
-            class="inline-flex items-center gap-2 border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:border-white/70 hover:bg-white/10"
+            class="inline-flex items-center gap-2 border border-white/30 px-8 py-4 text-base font-semibold text-white/90 transition-all duration-200 hover:border-white/60 hover:text-white rounded-sm"
           >
             Bekijk onze diensten
           </a>
@@ -55,29 +54,26 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
     </div>
 
     {showStats && (
-      <div class="mt-12 border-t border-white/20 pt-8">
-        <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
-          <div class="border-t-2 border-secondary pt-4">
-            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">50+</span>
-            <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Vrachtwagens per dag</span>
+      <div class="mt-14 border-t border-white/15 pt-8">
+        <div class="grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-4">
+          <div>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">50+</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Vrachtwagens per dag</p>
           </div>
-          <div class="border-t-2 border-secondary pt-4">
-            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">2.4</span>
-            <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Hectare</span>
+          <div>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">2.4</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Hectare terrein</p>
           </div>
-          <div class="border-t-2 border-secondary pt-4">
-            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">180K</span>
-            <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Ton jaarcapaciteit</span>
+          <div>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">180K</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Ton jaarcapaciteit</p>
           </div>
-          <div class="border-t-2 border-secondary pt-4">
-            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">24/7</span>
-            <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Beveiligd</span>
+          <div>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">24/7</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Beveiligd</p>
           </div>
         </div>
       </div>
     )}
   </div>
-
-  <!-- Bottom edge -->
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-white/20 z-[2]"></div>
 </section>
