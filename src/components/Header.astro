@@ -9,20 +9,20 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-white/10 transition-all duration-300" id="site-header">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border transition-all duration-300" id="site-header">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-20 items-center justify-between">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 group" aria-label="Ecopark Breda - Home">
-        <div class="flex h-11 w-11 items-center justify-center bg-secondary transition-colors duration-200 group-hover:bg-secondary-dark">
+        <div class="flex h-11 w-11 items-center justify-center bg-primary transition-colors duration-200 group-hover:bg-primary-dark">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-6 w-6">
             <path d="M3 7l6-4 6 4 6-4v14l-6 4-6-4-6 4V7z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" fill="none"/>
             <path d="M9 3v14M15 7v14" stroke="#ffffff" stroke-width="2"/>
           </svg>
         </div>
         <div class="flex flex-col leading-none">
-          <span class="text-xl font-black tracking-tight text-white">ECOPARK</span>
-          <span class="text-sm font-bold tracking-widest text-secondary">BREDA</span>
+          <span class="text-xl font-black tracking-tight text-dark">ECOPARK</span>
+          <span class="text-sm font-bold tracking-widest text-primary">BREDA</span>
         </div>
       </a>
 
@@ -34,8 +34,8 @@ const navLinks = [
             class:list={[
               'px-4 py-2 text-sm font-bold transition-colors duration-200',
               currentPath === link.href
-                ? 'text-secondary'
-                : 'text-white/60 hover:text-white',
+                ? 'text-primary'
+                : 'text-gray-medium hover:text-dark',
             ]}
             aria-current={currentPath === link.href ? 'page' : undefined}
           >
@@ -44,7 +44,7 @@ const navLinks = [
         ))}
         <a
           href="/contact/"
-          class="ml-3 inline-flex items-center border-2 border-secondary px-5 py-2.5 text-sm font-bold text-secondary transition-all duration-200 hover:bg-secondary hover:text-white"
+          class="ml-3 inline-flex items-center border-2 border-secondary bg-secondary px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark"
         >
           Offerte aanvragen
         </a>
@@ -53,7 +53,7 @@ const navLinks = [
       <!-- Mobile Menu Button -->
       <button
         type="button"
-        class="inline-flex h-11 w-11 items-center justify-center text-white/60 transition-colors hover:text-white md:hidden"
+        class="inline-flex h-11 w-11 items-center justify-center text-gray-medium transition-colors hover:text-dark md:hidden"
         id="mobile-menu-btn"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -72,7 +72,7 @@ const navLinks = [
   <!-- Mobile Navigation -->
   <div
     id="mobile-menu"
-    class="hidden border-t border-white/10 bg-dark md:hidden"
+    class="hidden border-t border-border bg-white md:hidden"
     role="navigation"
     aria-label="Mobiele navigatie"
   >
@@ -83,8 +83,8 @@ const navLinks = [
           class:list={[
             'block px-4 py-3 text-base font-bold transition-colors duration-200',
             currentPath === link.href
-              ? 'text-secondary'
-              : 'text-white/60 hover:text-white',
+              ? 'text-primary'
+              : 'text-gray-medium hover:text-dark',
           ]}
           aria-current={currentPath === link.href ? 'page' : undefined}
         >
@@ -93,7 +93,7 @@ const navLinks = [
       ))}
       <a
         href="/contact/"
-        class="mt-2 block border-2 border-secondary px-4 py-3 text-center text-base font-bold text-secondary transition-colors hover:bg-secondary hover:text-white"
+        class="mt-2 block border-2 border-secondary bg-secondary px-4 py-3 text-center text-base font-bold text-white transition-colors hover:bg-secondary-dark hover:border-secondary-dark"
       >
         Offerte aanvragen
       </a>
@@ -126,11 +126,9 @@ const navLinks = [
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 10) {
-        header.classList.add('border-white/20');
-        header.classList.remove('border-white/10');
+        header.classList.add('shadow-sm');
       } else {
-        header.classList.remove('border-white/20');
-        header.classList.add('border-white/10');
+        header.classList.remove('shadow-sm');
       }
     });
   }

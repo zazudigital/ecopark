@@ -21,17 +21,16 @@
   --font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
-/* Base styles — dark-first industrial identity */
+/* Base styles — light corporate identity */
 html {
-  background-color: #0C1229;
+  background-color: #F5F7FC;
   scroll-behavior: smooth;
 }
 
 body {
-  color: #F5F7FC;
+  color: #0C1229;
   font-size: 1.0625rem;
   line-height: 1.6;
-  border-top: 4px solid #39b54a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.15;
   font-weight: 700;
-  color: #ffffff;
+  color: #0C1229;
 }
 
 /* Modular type scale */
@@ -107,7 +106,7 @@ a {
 
 /* Section divider */
 .section-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #dce3ef;
 }
 
 /* Focus visible for form inputs */
@@ -126,5 +125,5 @@ textarea:focus-visible {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #39b54a;
+  color: #283891;
 }

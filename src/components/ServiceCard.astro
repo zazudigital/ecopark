@@ -8,16 +8,16 @@ interface Props {
 const { number, title, description } = Astro.props;
 ---
 
-<div class="border-b border-white/10 py-8 first:border-t first:border-white/10">
+<div class="border-b border-border py-8 first:border-t first:border-border">
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-12 sm:gap-8">
     <!-- Number -->
     <div class="sm:col-span-2 lg:col-span-1">
-      <span class="stat-number text-3xl text-secondary">{number}</span>
+      <span class="stat-number text-3xl text-primary">{number}</span>
     </div>
     <!-- Content -->
     <div class="sm:col-span-10 lg:col-span-11">
-      <h3 class="text-lg font-bold text-white lg:text-xl">{title}</h3>
-      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-white/60">{description}</p>
+      <h3 class="text-lg font-bold text-dark lg:text-xl">{title}</h3>
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-gray-medium">{description}</p>
     </div>
   </div>
 </div>

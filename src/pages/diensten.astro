@@ -95,33 +95,33 @@ const services = [
   />
 
   <!-- Services Detail -->
-  <section class="bg-dark py-20 lg:py-28">
+  <section class="bg-white py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="space-y-0">
         {services.map((service) => (
-          <div id={service.id} class="border-b border-white/10 py-16 first:border-t first:border-white/10 first:pt-0">
+          <div id={service.id} class="border-b border-border py-16 first:border-t first:border-border first:pt-0">
             <div class="grid items-start gap-12 lg:grid-cols-12">
               <!-- Number -->
               <div class="lg:col-span-2">
-                <span class="stat-number text-5xl text-secondary lg:text-6xl">{service.number}</span>
+                <span class="stat-number text-5xl text-primary lg:text-6xl">{service.number}</span>
               </div>
 
               <!-- Content -->
               <div class="lg:col-span-6">
-                <h2 class="text-2xl font-black text-white sm:text-3xl">{service.title}</h2>
+                <h2 class="text-2xl font-black text-dark sm:text-3xl">{service.title}</h2>
                 {service.id === 'binnenvaart' && (
-                  <span class="spec-label mt-3 inline-block border border-secondary px-3 py-1">Binnenkort operationeel</span>
+                  <span class="spec-label mt-3 inline-block border border-primary px-3 py-1">Binnenkort operationeel</span>
                 )}
-                <p class="mt-4 text-base leading-relaxed text-white/50">{service.description}</p>
+                <p class="mt-4 text-base leading-relaxed text-gray-medium">{service.description}</p>
               </div>
 
               <!-- Features -->
               <div class="lg:col-span-4">
-                <ul class="space-y-3 border-l border-white/10 pl-6">
+                <ul class="space-y-3 border-l-2 border-primary/20 pl-6">
                   {service.features.map((feature) => (
                     <li class="flex items-start gap-3">
                       <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary"></span>
-                      <span class="text-sm text-white/50">{feature}</span>
+                      <span class="text-sm text-gray-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -134,34 +134,34 @@ const services = [
   </section>
 
   <!-- VIHB Section -->
-  <section class="bg-darker py-20 lg:py-28">
-    <div class="border-t border-white/10"></div>
+  <section class="bg-light py-20 lg:py-28">
+    <div class="border-t border-border"></div>
     <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <p class="spec-label mb-4">Certificering</p>
-        <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">
+        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
           VIHB Gecertificeerd
         </h2>
         <div class="mx-auto mt-4 h-0.5 w-16 bg-secondary"></div>
-        <p class="mt-6 text-lg leading-relaxed text-white/50">
+        <p class="mt-6 text-lg leading-relaxed text-gray-medium">
           Ecopark Breda is volledig VIHB-geregistreerd voor het Vervoeren, Inzamelen, Handelen en Bemiddelen van afvalstoffen. Deze registratie bevestigt dat wij voldoen aan alle wettelijke eisen voor professioneel afvalbeheer. Wij werken voor Gemeente Breda en Gemeente Oosterhout en verwerken dagelijks gft, huishoudelijk afval, grof afval en bouw- en sloopafval. Voor u als klant betekent dit zekerheid: een sluitende administratie en de garantie dat uw afvalstromen via gecertificeerde kanalen worden verwerkt.
         </p>
-        <div class="mt-10 grid gap-px bg-white/10 sm:grid-cols-4">
-          <div class="bg-darker p-6">
-            <p class="text-2xl font-black text-secondary">V</p>
-            <p class="mt-1 text-sm font-bold text-white/40">Vervoeren</p>
+        <div class="mt-10 grid gap-px bg-border sm:grid-cols-4">
+          <div class="bg-white p-6">
+            <p class="text-2xl font-black text-primary">V</p>
+            <p class="mt-1 text-sm font-bold text-gray-medium">Vervoeren</p>
           </div>
-          <div class="bg-darker p-6">
-            <p class="text-2xl font-black text-secondary">I</p>
-            <p class="mt-1 text-sm font-bold text-white/40">Inzamelen</p>
+          <div class="bg-white p-6">
+            <p class="text-2xl font-black text-primary">I</p>
+            <p class="mt-1 text-sm font-bold text-gray-medium">Inzamelen</p>
           </div>
-          <div class="bg-darker p-6">
-            <p class="text-2xl font-black text-secondary">H</p>
-            <p class="mt-1 text-sm font-bold text-white/40">Handelen</p>
+          <div class="bg-white p-6">
+            <p class="text-2xl font-black text-primary">H</p>
+            <p class="mt-1 text-sm font-bold text-gray-medium">Handelen</p>
           </div>
-          <div class="bg-darker p-6">
-            <p class="text-2xl font-black text-secondary">B</p>
-            <p class="mt-1 text-sm font-bold text-white/40">Bemiddelen</p>
+          <div class="bg-white p-6">
+            <p class="text-2xl font-black text-primary">B</p>
+            <p class="mt-1 text-sm font-bold text-gray-medium">Bemiddelen</p>
           </div>
         </div>
       </div>
