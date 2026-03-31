@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  showCta?: boolean;
+  compact?: boolean;
+}
+
+const { title, subtitle, showCta = true, compact = false } = Astro.props;
+---
+
+<section class:list={['relative overflow-hidden', compact ? 'py-20 lg:py-28' : 'py-28 lg:py-40']}>
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-dark"></div>
+
+  <!-- Decorative Elements -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-secondary blur-3xl"></div>
+    <div class="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-accent blur-3xl"></div>
+  </div>
+
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <!-- Green accent line -->
+      <div class="mb-8 h-1 w-16 rounded-full bg-secondary"></div>
+
+      <h1 class:list={[
+        'font-black leading-tight tracking-tight text-white',
+        compact ? 'text-3xl sm:text-4xl lg:text-5xl' : 'text-4xl sm:text-5xl lg:text-6xl'
+      ]}>
+        {title}
+      </h1>
+
+      <p class:list={[
+        'mt-6 max-w-2xl leading-relaxed text-white/80',
+        compact ? 'text-base lg:text-lg' : 'text-lg lg:text-xl'
+      ]}>
+        {subtitle}
+      </p>
+
+      {showCta && (
+        <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row">
+          <a
+            href="/contact/"
+            class="inline-flex items-center gap-2 rounded-lg bg-secondary px-8 py-4 text-base font-bold text-white shadow-lg transition-all duration-200 hover:bg-secondary-dark hover:shadow-xl hover:-translate-y-0.5"
+          >
+            Vraag een offerte aan
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a
+            href="/diensten/"
+            class="inline-flex items-center gap-2 rounded-lg border-2 border-white/30 px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10"
+          >
+            Bekijk onze diensten
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Bottom edge -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-border"></div>
+</section>

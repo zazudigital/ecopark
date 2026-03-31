@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #283891;
+  --color-primary-dark: #1e2a6e;
+  --color-primary-light: #3a4db0;
+  --color-secondary: #39b54a;
+  --color-secondary-dark: #2d9a3c;
+  --color-secondary-light: #4cc95c;
+  --color-accent: #1e56a0;
+  --color-dark: #0C1229;
+  --color-light: #F5F7FC;
+  --color-gray-light: #F5F7FC;
+  --color-gray-medium: #4a5568;
+  --color-gray-muted: #8594a7;
+  --color-border: #dce3ef;
+
+  --font-family-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-family-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Base styles */
+html {
+  background-color: #F5F7FC;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #0C1229;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography scale with clamp */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #0C1229;
+}
+
+/* Modular type scale */
+.text-display {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.text-h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.3;
+}
+
+.text-body {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Industrial stat numbers */
+.stat-number {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Button base transitions */
+.btn {
+  transition: all 200ms ease-out;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid #283891;
+  outline-offset: 2px;
+}
+
+/* Link hover underline */
+a {
+  transition: color 200ms ease-out;
+}
+
+/* Card hover transitions */
+.card-hover {
+  transition: all 200ms ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(12, 18, 41, 0.08);
+}
+
+/* Section divider */
+.section-divider {
+  border-top: 1px solid #dce3ef;
+}
+
+/* Focus visible for form inputs */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #283891;
+  outline-offset: 0;
+  border-color: #283891;
+}
+
+/* Custom scrollbar subtle */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F7FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dce3ef;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8594a7;
+}

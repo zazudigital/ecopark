@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Stats from '../components/Stats.astro';
+import CTA from '../components/CTA.astro';
+
+const services = [
+  {
+    title: 'Afvaloverslag & Verwerking',
+    description: 'VIHB-gecertificeerde overslag van bouw- en sloopafval, bedrijfsafval en groenafval. Geautomatiseerde weegbruggen registreren elke vracht nauwkeurig, zodat u altijd beschikt over volledige afvalstoffendocumentatie conform de wet.',
+    icon: '<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>',
+  },
+  {
+    title: 'Vrachtwagenstalling & Parkeren',
+    description: 'Beveiligde stallingsplaatsen voor vrachtwagens, trekkers en opleggers op 2.4 hectare volledig verhard terrein. 24/7 camerabewaking, hekwerken en professionele surveillance garanderen de veiligheid van uw wagenpark.',
+    icon: '<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>',
+  },
+  {
+    title: 'Containeropslag & Beheer',
+    description: 'Professionele opslag voor zee-, afval- en opslagcontainers in alle gangbare afmetingen. Ons terrein biedt ruime manoeuvreerruimte voor containerwagens en is ingericht voor snelle in- en uitrijprocedures.',
+    icon: '<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>',
+  },
+  {
+    title: 'Bulkgoederenoverslag',
+    description: 'Op- en overslag van zand, grind, grond, puin en andere bulkmaterialen met moderne laad- en losapparatuur. Geschikt voor grote volumes, met nauwkeurige weging en gescheiden opslagvakken per materiaalsoort.',
+    icon: '<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" /></svg>',
+  },
+  {
+    title: '24/7 Terreinbeveiliging',
+    description: 'Geavanceerd beveiligingssysteem met IP-camerabewaking, omheining met toegangscontrole en nachtverlichting over het gehele terrein. Professionele surveillance beschermt uw goederen en voertuigen dag en nacht.',
+    icon: '<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>',
+  },
+  {
+    title: 'Binnenvaart Overslag',
+    description: 'Binnenkort operationeel: onze overslagfaciliteit voor binnenvaart. Directe overslag van vrachtwagen naar schip vermindert wegverkeer en CO2-uitstoot, met aansluiting op het Brabantse vaarwegennetwerk.',
+    icon: '<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>',
+  },
+];
+---
+
+<Layout title="Ecopark Breda — Afvaloverslag, Vrachtwagenstalling & Logistiek Hub in Breda">
+  <!-- Hero Section -->
+  <Hero
+    title="De schakel tussen afval en herbestemming"
+    subtitle="Ecopark Breda is het logistieke knooppunt waar afvalstromen, vrachtverkeer en bulkgoederen samenkomen. Op ons 2.4 hectare grote, volledig verharde terrein aan de Nieuwe Bredase Baan verzorgen wij VIHB-gecertificeerde overslag, beveiligde stalling en efficiënte goederenhandling — 365 dagen per jaar."
+  />
+
+  <!-- Stats Section -->
+  <Stats />
+
+  <!-- Services Section -->
+  <section class="py-16 lg:py-24" id="diensten">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-16 max-w-2xl">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">Onze kernactiviteiten</p>
+        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+          Compleet aanbod voor de logistieke sector
+        </h2>
+        <p class="mt-4 text-lg text-gray-medium">
+          Van afvaloverslag en gescheiden inzameling tot beveiligde vrachtwagenstalling en bulkgoederenhandling — alles op één professioneel terrein, strategisch gelegen nabij de A16 en A27.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <a href="/diensten/" class="block">
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Section -->
+  <section class="bg-gray-light py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-16 lg:grid-cols-2">
+        <!-- Text Content -->
+        <div>
+          <p class="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">Ons Terrein</p>
+          <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+            Gebouwd voor zwaar logistiek verkeer
+          </h2>
+          <p class="mt-6 text-lg leading-relaxed text-gray-medium">
+            Ons terrein aan de Nieuwe Bredase Baan 30 is volledig verhard en specifiek ingericht voor de eisen van de afval- en transportsector. Op 2.4 hectare bieden wij ruimte voor gelijktijdige afhandeling van meerdere vrachtwagens, gescheiden opslagvakken voor diverse materiaalstromen en geautomatiseerde weegbruggen voor snelle doorvoer — ook tijdens piekuren.
+          </p>
+
+          <ul class="mt-8 space-y-4">
+            <li class="flex items-start gap-4">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary/10">
+                <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold text-dark">2.4 hectare volledig verhard</p>
+                <p class="text-sm text-gray-medium">Bestand tegen zwaar vrachtverkeer, inclusief diepladers en containerwagens</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary/10">
+                <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold text-dark">24/7 bewaking & toegangscontrole</p>
+                <p class="text-sm text-gray-medium">IP-camerasysteem, omheining en professionele surveillance dag en nacht</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary/10">
+                <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold text-dark">Strategisch gelegen bij A16 & A27</p>
+                <p class="text-sm text-gray-medium">Directe ontsluiting naar de snelweg, ideaal voor regionaal en nationaal transport</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary/10">
+                <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold text-dark">Geautomatiseerde systemen</p>
+                <p class="text-sm text-gray-medium">Digitale weegbruggen, gescheiden opslagvakken en hoge doorvoercapaciteit</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Key facility figures — editorial stacked -->
+        <div class="space-y-8 lg:pt-4">
+          <div class="border-l-2 border-secondary pl-6">
+            <span class="stat-number text-5xl lg:text-6xl text-primary">2.4</span>
+            <p class="text-gray-medium text-sm font-bold uppercase tracking-wider mt-1">Hectare volledig verhard terrein</p>
+          </div>
+          <div class="border-l-2 border-secondary pl-6">
+            <span class="stat-number text-5xl lg:text-6xl text-primary">24/7</span>
+            <p class="text-gray-medium text-sm font-bold uppercase tracking-wider mt-1">Professionele bewaking en surveillance</p>
+          </div>
+          <div class="border-l-2 border-secondary pl-6">
+            <span class="stat-number text-5xl lg:text-6xl text-primary">VIHB</span>
+            <p class="text-gray-medium text-sm font-bold uppercase tracking-wider mt-1">Gecertificeerd voor afvaltransport en handel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Plans Section -->
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="overflow-hidden rounded-2xl bg-gradient-to-r from-accent to-primary p-8 shadow-xl sm:p-12 lg:p-16">
+        <div class="grid items-center gap-8 lg:grid-cols-2">
+          <div>
+            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-1.5 text-sm font-bold text-secondary">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+              </svg>
+              Binnenkort operationeel
+            </div>
+            <h2 class="text-3xl font-black text-white sm:text-4xl">
+              Binnenvaart Overslagfaciliteit
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-white/80">
+              Ecopark Breda investeert in een eigen binnenvaart overslagfaciliteit. Door directe overslag van vrachtwagen naar binnenschip verkorten wij de logistieke keten, verlagen wij transportkosten en dragen wij bij aan vermindering van CO2-uitstoot en wegcongestie in de regio Breda en West-Brabant.
+            </p>
+          </div>
+          <div class="flex flex-col items-start gap-4 lg:items-end">
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 text-white/90">
+                <svg class="h-5 w-5 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm font-medium">Minder wegverkeer en CO2-uitstoot</span>
+              </div>
+              <div class="flex items-center gap-3 text-white/90">
+                <svg class="h-5 w-5 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm font-medium">Aansluiting op Brabants vaarwegennetwerk</span>
+              </div>
+              <div class="flex items-center gap-3 text-white/90">
+                <svg class="h-5 w-5 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm font-medium">Lagere transportkosten per ton</span>
+              </div>
+            </div>
+            <a href="/contact/" class="inline-flex items-center gap-2 bg-secondary px-6 py-3 rounded-lg text-white font-bold text-sm hover:bg-secondary-dark transition-colors mt-4">
+              Vraag meer informatie aan
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTA />
+</Layout>

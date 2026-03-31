@@ -1,0 +1,137 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/diensten/', label: 'Diensten' },
+  { href: '/over-ons/', label: 'Over Ons' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-shadow duration-300" id="site-header">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-20 items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group" aria-label="Ecopark Breda - Home">
+        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-primary transition-transform duration-200 group-hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-6 w-6">
+            <path d="M3 7l6-4 6 4 6-4v14l-6 4-6-4-6 4V7z" stroke="#39b54a" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <path d="M9 3v14M15 7v14" stroke="#ffffff" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="text-xl font-black tracking-tight text-primary">ECOPARK</span>
+          <span class="text-sm font-bold tracking-widest text-secondary">BREDA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Hoofdnavigatie">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'rounded-lg px-4 py-2 text-sm font-bold transition-colors duration-200',
+              currentPath === link.href
+                ? 'bg-primary/10 text-primary'
+                : 'text-gray-medium hover:bg-gray-light hover:text-primary',
+            ]}
+            aria-current={currentPath === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/contact/"
+          class="ml-3 inline-flex items-center rounded-lg bg-secondary px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:shadow-lg"
+        >
+          Offerte aanvragen
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-gray-medium transition-colors hover:bg-gray-light hover:text-primary md:hidden"
+        id="mobile-menu-btn"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Menu openen"
+      >
+        <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-gray-100 bg-white md:hidden"
+    role="navigation"
+    aria-label="Mobiele navigatie"
+  >
+    <div class="space-y-1 px-4 py-4">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'block rounded-lg px-4 py-3 text-base font-bold transition-colors duration-200',
+            currentPath === link.href
+              ? 'bg-primary/10 text-primary'
+              : 'text-gray-medium hover:bg-gray-light hover:text-primary',
+          ]}
+          aria-current={currentPath === link.href ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/contact/"
+        class="mt-2 block rounded-lg bg-secondary px-4 py-3 text-center text-base font-bold text-white transition-colors hover:bg-secondary-dark"
+      >
+        Offerte aanvragen
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-20"></div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  if (btn && menu && iconOpen && iconClose) {
+    btn.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.setAttribute('aria-label', isOpen ? 'Menu openen' : 'Menu sluiten');
+    });
+  }
+
+  // Add shadow on scroll
+  const header = document.getElementById('site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('shadow-md');
+        header.classList.remove('shadow-sm');
+      } else {
+        header.classList.remove('shadow-md');
+        header.classList.add('shadow-sm');
+      }
+    });
+  }
+</script>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="group relative rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:border-secondary/20 hover:shadow-lg hover:-translate-y-1">
+  <!-- Icon -->
+  <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-secondary group-hover:text-white">
+    <Fragment set:html={icon} />
+  </div>
+
+  <!-- Content -->
+  <h3 class="mb-3 text-lg font-bold text-dark">{title}</h3>
+  <p class="text-sm leading-relaxed text-gray-medium">{description}</p>
+
+  <!-- Arrow link -->
+  <div class="mt-6 flex items-center gap-2 text-sm font-bold text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
+    <span>Meer informatie</span>
+    <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </svg>
+  </div>
+
+  <!-- Accent line at bottom -->
+  <div class="absolute bottom-0 left-8 right-8 h-0.5 scale-x-0 rounded-full bg-secondary transition-transform duration-300 group-hover:scale-x-100"></div>
+</div>
