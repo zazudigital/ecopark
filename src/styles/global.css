@@ -9,6 +9,7 @@
   --color-secondary-light: #4cc95c;
   --color-accent: #1e56a0;
   --color-dark: #0C1229;
+  --color-darker: #080E1C;
   --color-light: #F5F7FC;
   --color-gray-light: #F5F7FC;
   --color-gray-medium: #4a5568;
@@ -20,16 +21,17 @@
   --font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
-/* Base styles */
+/* Base styles — dark-first industrial identity */
 html {
-  background-color: #F5F7FC;
+  background-color: #0C1229;
   scroll-behavior: smooth;
 }
 
 body {
-  color: #0C1229;
+  color: #F5F7FC;
   font-size: 1.0625rem;
   line-height: 1.6;
+  border-top: 4px solid #39b54a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.15;
   font-weight: 700;
-  color: #0C1229;
+  color: #ffffff;
 }
 
 /* Modular type scale */
@@ -89,16 +91,12 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 200ms ease-out;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-}
-
 .btn:active {
   transform: translateY(0);
 }
 
 .btn:focus-visible {
-  outline: 2px solid #283891;
+  outline: 2px solid #39b54a;
   outline-offset: 2px;
 }
 
@@ -107,44 +105,26 @@ a {
   transition: color 200ms ease-out;
 }
 
-/* Card hover transitions */
-.card-hover {
-  transition: all 200ms ease-out;
-}
-
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(12, 18, 41, 0.08);
-}
-
 /* Section divider */
 .section-divider {
-  border-top: 1px solid #dce3ef;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Focus visible for form inputs */
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #283891;
+  outline: 2px solid #39b54a;
   outline-offset: 0;
-  border-color: #283891;
+  border-color: #39b54a;
 }
 
-/* Custom scrollbar subtle */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #F5F7FC;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #dce3ef;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #8594a7;
+/* Industrial small caps for spec labels */
+.spec-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #39b54a;
 }

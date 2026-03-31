@@ -14,93 +14,76 @@ import CTA from '../components/CTA.astro';
   />
 
   <!-- Philosophy Section -->
-  <section class="py-20 lg:py-28">
+  <section class="bg-dark py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid items-center gap-16 lg:grid-cols-2">
+      <div class="grid items-start gap-16 lg:grid-cols-2">
         <div>
-          <p class="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">Onze Filosofie</p>
-          <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+          <p class="spec-label mb-3">Onze Filosofie</p>
+          <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">
             "Doe meer goed dan waar je goed in bent"
           </h2>
-          <p class="mt-6 text-lg leading-relaxed text-gray-medium">
+          <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
+          <p class="mt-6 text-lg leading-relaxed text-white/50">
             Deze woorden zijn geen slogan — ze vormen het fundament van Ecopark Breda. Wij zijn ervan overtuigd dat een bedrijf in de afval- en transportsector een bijzondere verantwoordelijkheid draagt. Elke dag verwerken wij materiaalstromen die rechtstreeks invloed hebben op de leefomgeving. Die verantwoordelijkheid nemen wij serieus, in alles wat wij doen.
           </p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-medium">
+          <p class="mt-4 text-lg leading-relaxed text-white/50">
             Ons vakmanschap ligt in de efficiënte overslag en het logistiek beheer van afvalstromen, bulkgoederen en vrachtverkeer. Maar onze ambitie reikt verder dan operationele excellentie. Wij investeren structureel in duurzamere processen, ondersteunen maatschappelijke projecten en zoeken voortdurend naar manieren om onze ecologische voetafdruk te verkleinen.
           </p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-medium">
+          <p class="mt-4 text-lg leading-relaxed text-white/50">
             Een concreet voorbeeld: onze investering in een eigen binnenvaart overslagfaciliteit. Door goederen via het water te vervoeren in plaats van over de weg, dragen wij bij aan minder congestie, lagere uitstoot en een duurzamere logistieke keten in West-Brabant.
           </p>
         </div>
 
-        <!-- Visual -->
-        <div class="relative">
-          <div class="overflow-hidden rounded-2xl bg-gradient-to-br from-secondary to-secondary-dark p-10 shadow-2xl">
-            <div class="flex flex-col items-center justify-center py-12 text-center">
-              <svg class="mb-6 h-16 w-16 text-white/90" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-              </svg>
-              <blockquote class="text-2xl font-black italic text-white">
-                "Doe meer goed dan waar je goed in bent"
-              </blockquote>
-              <p class="mt-4 text-white/70">— De filosofie van Ecopark Breda</p>
-            </div>
-          </div>
-          <div class="absolute -bottom-4 -left-4 -z-10 h-full w-full rounded-2xl bg-primary/20"></div>
+        <!-- Quote block -->
+        <div class="border-l-2 border-secondary pl-8 lg:mt-16">
+          <blockquote class="text-3xl font-black italic text-white lg:text-4xl">
+            "Doe meer goed dan waar je goed in bent"
+          </blockquote>
+          <div class="mt-6 h-px w-12 bg-white/20"></div>
+          <p class="mt-4 text-white/40">De filosofie van Ecopark Breda</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Company Info -->
-  <section class="bg-gray-light py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section class="bg-darker py-20 lg:py-28">
+    <div class="border-t border-white/10"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
       <div class="mx-auto mb-16 max-w-2xl text-center">
-        <p class="mb-3 text-sm font-bold uppercase tracking-wider text-secondary">Waarom Ecopark Breda</p>
-        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+        <p class="spec-label mb-3">Waarom Ecopark Breda</p>
+        <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">
           Gebouwd op expertise, gedreven door waarden
         </h2>
-        <p class="mt-4 text-lg text-gray-medium">
+        <p class="mt-4 text-lg text-white/50">
           Ecopark Breda B.V. combineert diepgaande sectorkennis met een onvoorwaardelijke inzet voor kwaliteit, veiligheid en duurzaamheid. Drie pijlers dragen ons bedrijf.
         </p>
       </div>
 
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-px bg-white/10 md:grid-cols-3">
         <!-- Card: Expertise -->
-        <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
-          <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
-            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.88 3.09a.75.75 0 01-1.09-.79l1.12-6.54-4.76-4.64a.75.75 0 01.42-1.28l6.58-.96 2.94-5.95a.75.75 0 011.36 0l2.94 5.95 6.58.96a.75.75 0 01.42 1.28l-4.76 4.64 1.12 6.54a.75.75 0 01-1.09.79l-5.88-3.09z" />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-xl font-bold text-dark">Sectorexpertise</h3>
-          <p class="text-gray-medium leading-relaxed">
+        <div class="bg-darker p-8">
+          <span class="spec-label">01</span>
+          <h3 class="mt-4 mb-3 text-xl font-bold text-white">Sectorexpertise</h3>
+          <p class="text-white/40 leading-relaxed">
             Jarenlange ervaring in afvalinzameling, opslag, verwerking en distributie heeft ons een diepgaand begrip gegeven van de logistieke uitdagingen in deze sector. Onze VIHB-registratie is daarvan het bewijs — wij kennen de wet- en regelgeving en passen die consequent toe in onze dagelijkse operatie.
           </p>
         </div>
 
         <!-- Card: Duurzaamheid -->
-        <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
-          <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
-            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.692-.8 1.258l.108.646c.24 1.435 1.195 2.478 2.347 2.96m0 0a9 9 0 01-3.746.007" />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-xl font-bold text-dark">Duurzame bedrijfsvoering</h3>
-          <p class="text-gray-medium leading-relaxed">
+        <div class="bg-darker p-8">
+          <span class="spec-label">02</span>
+          <h3 class="mt-4 mb-3 text-xl font-bold text-white">Duurzame bedrijfsvoering</h3>
+          <p class="text-white/40 leading-relaxed">
             Duurzaamheid is geen bijzaak, maar een kernonderdeel van onze strategie. Van gescheiden afvalinzameling gericht op maximale recycling, tot onze investering in binnenvaart als schoner alternatief voor wegtransport — elke operationele keuze toetsen wij aan de impact op milieu en omgeving.
           </p>
         </div>
 
         <!-- Card: Betrouwbaarheid -->
-        <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-100">
-          <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent">
-            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-            </svg>
-          </div>
-          <h3 class="mb-3 text-xl font-bold text-dark">Operationele betrouwbaarheid</h3>
-          <p class="text-gray-medium leading-relaxed">
+        <div class="bg-darker p-8">
+          <span class="spec-label">03</span>
+          <h3 class="mt-4 mb-3 text-xl font-bold text-white">Operationele betrouwbaarheid</h3>
+          <p class="text-white/40 leading-relaxed">
             Transportbedrijven en afvalverwerkers rekenen op partners die leveringsafspraken nakomen. Bij Ecopark Breda betekent dat: nauwkeurige vrachtregistratie, sluitende documentatie, 24/7 beveiliging van uw goederen en een terrein dat 365 dagen per jaar operationeel is — ook bij piekaanbod.
           </p>
         </div>
@@ -109,92 +92,83 @@ import CTA from '../components/CTA.astro';
   </section>
 
   <!-- Charity Section -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-accent shadow-xl">
-        <div class="grid items-center lg:grid-cols-2">
-          <!-- Text -->
-          <div class="p-8 sm:p-12 lg:p-16">
-            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-1.5 text-sm font-bold text-secondary">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-              </svg>
-              Maatschappelijke betrokkenheid
-            </div>
-            <h2 class="text-3xl font-black text-white sm:text-4xl">
-              Stichting Prithipura
-            </h2>
-            <p class="mt-6 text-lg leading-relaxed text-white/80">
-              Ecopark Breda ondersteunt Stichting Prithipura, een organisatie die al tientallen jaren zorg, huisvesting en revalidatie biedt aan mensen met een lichamelijke beperking in Sri Lanka. Het tehuis in Hendala vangt ruim honderd bewoners op die zonder deze steun geen toegang zouden hebben tot adequate zorg.
-            </p>
-            <p class="mt-4 text-lg leading-relaxed text-white/80">
-              Onze betrokkenheid bij Prithipura is geen sponsordeal — het is een uitdrukking van waar wij als bedrijf voor staan. "Doe meer goed dan waar je goed in bent" betekent dat wij onze middelen en ons netwerk inzetten om impact te maken die verder reikt dan de grenzen van ons terrein. In Sri Lanka, maar ook dichter bij huis.
-            </p>
-            <a
-              href="https://www.prithipura.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-8 inline-flex items-center gap-2 rounded-lg bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark"
-            >
-              Meer over Stichting Prithipura
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-              </svg>
-            </a>
-          </div>
+  <section class="bg-dark py-20 lg:py-28">
+    <div class="border-t border-white/10"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-12 lg:grid-cols-2">
+        <!-- Text -->
+        <div>
+          <span class="spec-label inline-block border border-secondary px-3 py-1 mb-6">Maatschappelijke betrokkenheid</span>
+          <h2 class="text-3xl font-black text-white sm:text-4xl">
+            Stichting Prithipura
+          </h2>
+          <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
+          <p class="mt-6 text-lg leading-relaxed text-white/50">
+            Ecopark Breda ondersteunt Stichting Prithipura, een organisatie die al tientallen jaren zorg, huisvesting en revalidatie biedt aan mensen met een lichamelijke beperking in Sri Lanka. Het tehuis in Hendala vangt ruim honderd bewoners op die zonder deze steun geen toegang zouden hebben tot adequate zorg.
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-white/50">
+            Onze betrokkenheid bij Prithipura is geen sponsordeal — het is een uitdrukking van waar wij als bedrijf voor staan. "Doe meer goed dan waar je goed in bent" betekent dat wij onze middelen en ons netwerk inzetten om impact te maken die verder reikt dan de grenzen van ons terrein. In Sri Lanka, maar ook dichter bij huis.
+          </p>
+          <a
+            href="https://www.prithipura.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex items-center gap-2 border-2 border-secondary px-6 py-3 text-base font-bold text-secondary transition-all duration-200 hover:bg-secondary hover:text-white"
+          >
+            Meer over Stichting Prithipura
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+        </div>
 
-          <!-- Visual -->
-          <div class="flex items-center justify-center bg-white/5 p-12 lg:p-16">
-            <div class="text-center">
-              <div class="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm">
-                <svg class="h-12 w-12 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-black text-white">Ondernemen met impact</h3>
-              <p class="mt-2 text-white/60">Lokaal en internationaal</p>
-            </div>
-          </div>
+        <!-- Visual -->
+        <div class="border-l border-white/10 pl-8 lg:mt-8">
+          <span class="stat-number text-6xl text-secondary lg:text-8xl">100+</span>
+          <p class="mt-2 text-sm font-bold uppercase tracking-wider text-white/40">Bewoners ontvangen dagelijks zorg in Hendala, Sri Lanka</p>
+          <div class="mt-8 h-px w-full bg-white/10"></div>
+          <p class="mt-6 text-xl font-black italic text-white/60">Ondernemen met impact — lokaal en internationaal</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Company Details -->
-  <section class="bg-gray-light py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section class="bg-darker py-20 lg:py-28">
+    <div class="border-t border-white/10"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl">
-        <h2 class="mb-12 text-center text-3xl font-black tracking-tight text-dark sm:text-4xl">
+        <h2 class="mb-12 text-center text-3xl font-black tracking-tight text-white sm:text-4xl">
           Bedrijfsgegevens
         </h2>
 
-        <div class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
-          <dl class="divide-y divide-gray-100">
+        <div class="border border-white/10">
+          <dl class="divide-y divide-white/10">
             <div class="grid grid-cols-1 gap-1 px-8 py-5 sm:grid-cols-3 sm:gap-4">
-              <dt class="text-sm font-bold text-dark">Bedrijfsnaam</dt>
-              <dd class="text-sm text-gray-medium sm:col-span-2">Ecopark Breda B.V.</dd>
+              <dt class="spec-label flex items-center">Bedrijfsnaam</dt>
+              <dd class="text-sm text-white sm:col-span-2">Ecopark Breda B.V.</dd>
             </div>
             <div class="grid grid-cols-1 gap-1 px-8 py-5 sm:grid-cols-3 sm:gap-4">
-              <dt class="text-sm font-bold text-dark">KvK-nummer</dt>
-              <dd class="text-sm text-gray-medium sm:col-span-2">62609645</dd>
+              <dt class="spec-label flex items-center">KvK-nummer</dt>
+              <dd class="text-sm text-white sm:col-span-2">62609645</dd>
             </div>
             <div class="grid grid-cols-1 gap-1 px-8 py-5 sm:grid-cols-3 sm:gap-4">
-              <dt class="text-sm font-bold text-dark">Adres</dt>
-              <dd class="text-sm text-gray-medium sm:col-span-2">Nieuwe Bredase Baan 30, 4825 BP Breda</dd>
+              <dt class="spec-label flex items-center">Adres</dt>
+              <dd class="text-sm text-white sm:col-span-2">Nieuwe Bredase Baan 30, 4825 BP Breda</dd>
             </div>
             <div class="grid grid-cols-1 gap-1 px-8 py-5 sm:grid-cols-3 sm:gap-4">
-              <dt class="text-sm font-bold text-dark">Telefoon</dt>
-              <dd class="text-sm text-gray-medium sm:col-span-2">
-                <a href="tel:0765720030" class="text-primary hover:underline">076-572 0030</a>
+              <dt class="spec-label flex items-center">Telefoon</dt>
+              <dd class="text-sm sm:col-span-2">
+                <a href="tel:0765720030" class="text-secondary hover:text-secondary-light">076-572 0030</a>
               </dd>
             </div>
             <div class="grid grid-cols-1 gap-1 px-8 py-5 sm:grid-cols-3 sm:gap-4">
-              <dt class="text-sm font-bold text-dark">Registraties</dt>
-              <dd class="text-sm text-gray-medium sm:col-span-2">VIHB (Vervoeren, Inzamelen, Handelen, Bemiddelen)</dd>
+              <dt class="spec-label flex items-center">Registraties</dt>
+              <dd class="text-sm text-white sm:col-span-2">VIHB (Vervoeren, Inzamelen, Handelen, Bemiddelen)</dd>
             </div>
             <div class="grid grid-cols-1 gap-1 px-8 py-5 sm:grid-cols-3 sm:gap-4">
-              <dt class="text-sm font-bold text-dark">Sector</dt>
-              <dd class="text-sm text-gray-medium sm:col-span-2">Afvaloverslag, goederenlogistiek, beveiligde stalling en opslag</dd>
+              <dt class="spec-label flex items-center">Sector</dt>
+              <dd class="text-sm text-white sm:col-span-2">Afvaloverslag, goederenlogistiek, beveiligde stalling en opslag</dd>
             </div>
           </dl>
         </div>
