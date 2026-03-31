@@ -99,7 +99,7 @@ const services = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="space-y-0">
         {services.map((service) => (
-          <div id={service.id} class="border-b border-border py-16 first:border-t first:border-border first:pt-0">
+          <div id={service.id} class="border-b border-border py-16 first:border-t first:border-border first:pt-0" data-animate>
             <div class="grid items-start gap-12 lg:grid-cols-12">
               <!-- Number -->
               <div class="lg:col-span-2">
@@ -110,7 +110,7 @@ const services = [
               <div class="lg:col-span-6">
                 <h2 class="text-2xl font-black text-dark sm:text-3xl">{service.title}</h2>
                 {service.id === 'binnenvaart' && (
-                  <span class="spec-label mt-3 inline-block border border-primary px-3 py-1">Binnenkort operationeel</span>
+                  <span class="spec-label badge-pulse mt-3 inline-block border border-secondary bg-secondary/5 px-3 py-1 text-secondary">Binnenkort operationeel</span>
                 )}
                 <p class="mt-4 text-base leading-relaxed text-gray-medium">{service.description}</p>
               </div>
@@ -142,7 +142,7 @@ const services = [
   <section class="bg-light py-20 lg:py-28">
     <div class="border-t border-border"></div>
     <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
         <p class="spec-label mb-4">Certificering</p>
         <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
           VIHB Gecertificeerd

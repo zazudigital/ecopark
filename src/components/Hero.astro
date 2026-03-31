@@ -10,11 +10,11 @@ interface Props {
 const { title, subtitle, showCta = true, compact = false, showStats = false } = Astro.props;
 ---
 
-<section class:list={['relative', compact ? 'min-h-[50vh]' : 'min-h-[75vh]']}>
+<section class:list={['relative hero-fade', compact ? 'min-h-[50vh]' : 'min-h-[75vh]']}>
   <!-- Background image -->
   <img src="/images/hero-logistics.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true" width="1400" height="800" />
-  <div class="absolute inset-0 bg-primary/90"></div>
-  <div class:list={['relative mx-auto flex max-w-7xl flex-col justify-end px-4 sm:px-6 lg:px-8', compact ? 'min-h-[50vh] pb-12 pt-32' : 'min-h-[75vh] pb-16 pt-40']}>
+  <div class="absolute inset-0 hero-gradient-animated"></div>
+  <div class:list={['relative z-[2] mx-auto flex max-w-7xl flex-col justify-end px-4 sm:px-6 lg:px-8', compact ? 'min-h-[50vh] pb-12 pt-32' : 'min-h-[75vh] pb-16 pt-40']}>
     <div class="max-w-3xl">
       <h1 class:list={[
         'font-black leading-tight tracking-tight text-white',
@@ -23,8 +23,8 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
         {title}
       </h1>
 
-      <!-- Green horizontal rule below title -->
-      <div class="mt-6 h-0.5 w-24 bg-secondary"></div>
+      <!-- Green horizontal rule — animates width on load -->
+      <div class="mt-6 h-0.5 bg-secondary animate-rule"></div>
 
       <p class:list={[
         'mt-6 max-w-2xl leading-relaxed text-white/80',
@@ -37,7 +37,7 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
         <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row">
           <a
             href="/contact/"
-            class="inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark"
+            class="inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:brightness-110 hover:-translate-y-px hover:shadow-lg"
           >
             Vraag een offerte aan
             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -57,20 +57,20 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
     {showStats && (
       <div class="mt-12 border-t border-white/20 pt-8">
         <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
-          <div>
-            <span class="stat-number text-3xl lg:text-4xl text-secondary">50+</span>
+          <div class="border-t-2 border-secondary pt-4">
+            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">50+</span>
             <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Vrachtwagens per dag</span>
           </div>
-          <div>
-            <span class="stat-number text-3xl lg:text-4xl text-secondary">2.4</span>
+          <div class="border-t-2 border-secondary pt-4">
+            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">2.4</span>
             <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Hectare</span>
           </div>
-          <div>
-            <span class="stat-number text-3xl lg:text-4xl text-secondary">180K</span>
+          <div class="border-t-2 border-secondary pt-4">
+            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">180K</span>
             <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Ton jaarcapaciteit</span>
           </div>
-          <div>
-            <span class="stat-number text-3xl lg:text-4xl text-secondary">24/7</span>
+          <div class="border-t-2 border-secondary pt-4">
+            <span class="stat-number text-5xl lg:text-6xl text-secondary" style="font-variant-numeric: tabular-nums;">24/7</span>
             <span class="ml-2 text-sm font-medium uppercase tracking-wider text-white/70">Beveiligd</span>
           </div>
         </div>
@@ -79,5 +79,5 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
   </div>
 
   <!-- Bottom edge -->
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-white/20"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-white/20 z-[2]"></div>
 </section>

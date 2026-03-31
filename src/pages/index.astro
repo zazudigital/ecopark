@@ -46,10 +46,13 @@ const services = [
     showStats={true}
   />
 
+  <!-- Section divider -->
+  <hr class="section-hr" />
+
   <!-- Services Section — Alternating full-width rows -->
   <section class="bg-white py-16 lg:py-24" id="diensten">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-16 max-w-2xl">
+      <div class="mb-16 max-w-2xl" data-animate>
         <p class="spec-label mb-3">Onze kernactiviteiten</p>
         <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
           Overslagstation met ambities
@@ -59,11 +62,11 @@ const services = [
         </p>
       </div>
 
-      <div class="mb-12">
+      <div class="mb-12" data-animate>
         <img src="/images/trucks.jpg" alt="Vrachtwagens op het Ecopark Breda terrein" loading="lazy" width="800" height="600" class="w-full h-64 object-cover rounded-sm" />
       </div>
 
-      <div>
+      <div data-animate-stagger>
         {services.map((service) => (
           <a href="/diensten/" class="block">
             <ServiceCard
@@ -77,10 +80,13 @@ const services = [
     </div>
   </section>
 
+  <!-- Section divider -->
+  <hr class="section-hr" />
+
   <!-- Facility Section — Spec sheet style -->
   <section class="bg-light py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-16 max-w-2xl">
+      <div class="mb-16 max-w-2xl" data-animate>
         <p class="spec-label mb-3">Toplocatie</p>
         <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
           Volledig bestraat, professioneel park
@@ -91,71 +97,76 @@ const services = [
         </p>
       </div>
 
-      <div class="mb-12">
+      <div class="mb-12" data-animate>
         <img src="/images/warehouse.jpg" alt="Ecopark Breda terrein met opslagfaciliteiten" loading="lazy" width="800" height="600" class="w-full h-56 object-cover rounded-sm" />
       </div>
 
-      <div class="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-white p-8">
-          <span class="spec-label">Terrein</span>
-          <p class="mt-2 text-lg font-bold text-dark">2,4 hectare volledig bestraat</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Beveiliging</span>
-          <p class="mt-2 text-lg font-bold text-dark">State-of-the-art camerasysteem</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Capaciteit</span>
-          <p class="mt-2 text-lg font-bold text-dark">180.000 ton jaarcapaciteit in overdekte loods</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Certificering</span>
-          <p class="mt-2 text-lg font-bold text-dark">VIHB geregistreerd</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Toegang</span>
-          <p class="mt-2 text-lg font-bold text-dark">Verplichte aan- en afmelding bij de portier</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Nieuwbouw</span>
-          <p class="mt-2 text-lg font-bold text-dark">Verouderde gebouwen plaatsgemaakt voor nieuwbouw</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Gemeenten</span>
-          <p class="mt-2 text-lg font-bold text-dark">Gemeente Breda & Gemeente Oosterhout</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Dagelijks</span>
-          <p class="mt-2 text-lg font-bold text-dark">50+ vrachtwagens aanvoer, 15 vrachtwagens afvoer</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Locatie</span>
-          <p class="mt-2 text-lg font-bold text-dark">Bedrijventerrein De Krogten, aan de rivier de Mark</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Snelwegen</span>
-          <p class="mt-2 text-lg font-bold text-dark">A16, A59 en A27 — eenvoudig bereikbaar</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Duurzaamheid</span>
-          <p class="mt-2 text-lg font-bold text-dark">Volledig bestraat — geen afval ontsnapt naar het milieu</p>
-        </div>
-        <div class="bg-white p-8">
-          <span class="spec-label">Waterweg</span>
-          <p class="mt-2 text-lg font-bold text-dark">Via de Mark naar Volkerak, Hollandsdiep en Moerdijk</p>
+      <div class="border border-border" data-animate>
+        <div class="spec-grid grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3" data-animate-stagger>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Terrein</span>
+            <p class="mt-2 text-lg font-bold text-dark">2,4 hectare volledig bestraat</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Beveiliging</span>
+            <p class="mt-2 text-lg font-bold text-dark">State-of-the-art camerasysteem</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Capaciteit</span>
+            <p class="mt-2 text-lg font-bold text-dark">180.000 ton jaarcapaciteit in overdekte loods</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Certificering</span>
+            <p class="mt-2 text-lg font-bold text-dark">VIHB geregistreerd</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Toegang</span>
+            <p class="mt-2 text-lg font-bold text-dark">Verplichte aan- en afmelding bij de portier</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Nieuwbouw</span>
+            <p class="mt-2 text-lg font-bold text-dark">Verouderde gebouwen plaatsgemaakt voor nieuwbouw</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Gemeenten</span>
+            <p class="mt-2 text-lg font-bold text-dark">Gemeente Breda & Gemeente Oosterhout</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Dagelijks</span>
+            <p class="mt-2 text-lg font-bold text-dark">50+ vrachtwagens aanvoer, 15 vrachtwagens afvoer</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Locatie</span>
+            <p class="mt-2 text-lg font-bold text-dark">Bedrijventerrein De Krogten, aan de rivier de Mark</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Snelwegen</span>
+            <p class="mt-2 text-lg font-bold text-dark">A16, A59 en A27 — eenvoudig bereikbaar</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Duurzaamheid</span>
+            <p class="mt-2 text-lg font-bold text-dark">Volledig bestraat — geen afval ontsnapt naar het milieu</p>
+          </div>
+          <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <span class="spec-label text-xs">Waterweg</span>
+            <p class="mt-2 text-lg font-bold text-dark">Via de Mark naar Volkerak, Hollandsdiep en Moerdijk</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Section divider -->
+  <hr class="section-hr" />
 
   <!-- Future Plans Section -->
   <section class="bg-white py-20 lg:py-28">
     <div class="border-t border-border"></div>
     <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 lg:grid-cols-2">
-        <div>
-          <span class="spec-label inline-block border border-primary px-3 py-1 mb-6">Binnenkort operationeel</span>
-          <h2 class="text-3xl font-black text-dark sm:text-4xl">
+        <div data-animate>
+          <span class="spec-label badge-pulse inline-block border border-secondary bg-secondary/5 px-3 py-1 mb-6 text-secondary">Binnenkort operationeel</span>
+          <h2 class="text-3xl font-black text-dark sm:text-4xl lg:text-5xl">
             Binnenvaart Overslagfaciliteit
           </h2>
           <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
@@ -163,7 +174,7 @@ const services = [
             Ecopark Breda grenst aan de rivier de Mark en investeert in een eigen overslagfaciliteit voor transport per schip. Via de Mark naar het Volkerak en Hollandsdiep komt het industriegebied Moerdijk binnen handbereik. Door directe overslag van vrachtwagen naar binnenschip verminderen wij transportbewegingen over de weg, verlagen wij kosten en dragen wij bij aan een schoner milieu. Duurzaamheid en circulaire economische vooruitgang gaan hand in hand.
           </p>
         </div>
-        <div class="lg:pt-4">
+        <div class="lg:pt-4" data-animate>
           <ul class="space-y-4 border-l-2 border-primary/20 pl-6">
             <li class="flex items-start gap-3">
               <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary"></span>
@@ -186,6 +197,9 @@ const services = [
       </div>
     </div>
   </section>
+
+  <!-- Section divider -->
+  <hr class="section-hr" />
 
   <!-- CTA Section -->
   <CTA />

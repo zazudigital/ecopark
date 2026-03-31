@@ -21,6 +21,17 @@
   --font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
+/* Branded text selection — green for brand identity */
+::selection {
+  background-color: #39b54a;
+  color: white;
+}
+
+/* Scroll margin for anchored sections */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 /* Base styles — light corporate identity */
 html {
   background-color: #F5F7FC;
@@ -31,6 +42,7 @@ body {
   color: #0C1229;
   font-size: 1.0625rem;
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -85,13 +97,28 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
+/* Card lift hover effect */
+.card-lift {
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(12,18,41,0.08);
+}
+
 /* Button base transitions */
 .btn {
   transition: all 200ms ease-out;
 }
 
+.btn:hover {
+  box-shadow: 0 4px 12px rgba(12,18,41,0.10);
+}
+
 .btn:active {
   transform: translateY(0);
+  box-shadow: none;
 }
 
 .btn:focus-visible {
@@ -99,9 +126,19 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: 2px;
 }
 
+/* Section subtle divider */
+.section-hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(40, 56, 145, 0.10);
+  margin: 0;
+}
+
 /* Link hover underline */
 a {
   transition: color 200ms ease-out;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
 }
 
 /* Section divider */
@@ -128,8 +165,193 @@ textarea:focus-visible {
   color: #283891;
 }
 
+/* Hero bottom gradient fade */
+.hero-fade::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  background: linear-gradient(to bottom, transparent, #F5F7FC);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Green rule animate-in */
+@keyframes rule-grow {
+  from { width: 0; }
+  to { width: 6rem; }
+}
+
+.animate-rule {
+  animation: rule-grow 0.6s ease-out 0.3s both;
+}
+
+/* Footer heading accent underline */
+.footer-heading {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1.5rem;
+  height: 2px;
+  background-color: rgba(255,255,255,0.4);
+}
+
+/* Scroll-triggered fade-in animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children inside card grids */
+[data-animate-stagger] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+[data-animate-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(2) { transition-delay: 80ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(3) { transition-delay: 160ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(4) { transition-delay: 240ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(5) { transition-delay: 320ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(6) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(7) { transition-delay: 480ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(8) { transition-delay: 560ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(9) { transition-delay: 640ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(10) { transition-delay: 720ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(11) { transition-delay: 800ms; opacity: 1; transform: translateY(0); }
+[data-animate-stagger].is-visible > *:nth-child(12) { transition-delay: 880ms; opacity: 1; transform: translateY(0); }
+
+/* Hero subtle gradient animation */
+@keyframes hero-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-gradient-animated {
+  background: linear-gradient(135deg, rgba(40,56,145,0.92) 0%, rgba(30,42,110,0.94) 25%, rgba(40,56,145,0.90) 50%, rgba(30,86,160,0.92) 75%, rgba(40,56,145,0.92) 100%);
+  background-size: 300% 300%;
+  animation: hero-gradient-shift 12s ease-in-out infinite;
+}
+
+/* Spec grid row hover */
+.spec-row {
+  transition: all 200ms ease-out;
+}
+
+.spec-row:hover {
+  border-left: 3px solid #39b54a;
+  padding-left: calc(2rem - 3px);
+  background-color: rgba(57, 181, 74, 0.03);
+}
+
+/* Alternating spec rows */
+.spec-grid > *:nth-child(even) {
+  background-color: #fafbfe;
+}
+
+.spec-grid > *:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Badge pulse animation for "Binnenkort operationeel" */
+@keyframes badge-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(57, 181, 74, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(57, 181, 74, 0);
+  }
+}
+
+.badge-pulse {
+  animation: badge-pulse 2.5s ease-in-out infinite;
+}
+
+/* Form focus ring animation */
+@keyframes focus-ring-expand {
+  from {
+    box-shadow: 0 0 0 0 rgba(57, 181, 74, 0.4);
+  }
+  to {
+    box-shadow: 0 0 0 4px rgba(57, 181, 74, 0.15);
+  }
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  animation: focus-ring-expand 0.3s ease-out forwards;
+  border-color: #39b54a;
+  outline: none;
+}
+
+/* Contact sidebar card top accent */
+.sidebar-card {
+  border-top: 3px solid #39b54a;
+}
+
+/* Nav link green underline on hover */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #39b54a;
+  transition: width 200ms ease-out;
+}
+
+.nav-link:hover::after {
+  width: 70%;
+}
+
+.nav-link-active::after {
+  width: 70%;
+  background-color: #39b54a;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  [data-animate] { opacity: 1; transform: none; }
+  [data-animate-stagger] > * { opacity: 1; transform: none; }
+  .hero-gradient-animated { animation: none; }
+  .badge-pulse { animation: none; }
 }
