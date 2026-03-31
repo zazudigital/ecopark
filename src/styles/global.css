@@ -127,3 +127,9 @@ textarea:focus-visible {
   text-transform: uppercase;
   color: #283891;
 }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
