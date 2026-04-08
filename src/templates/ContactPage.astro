@@ -27,7 +27,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
         <div class="lg:col-span-3" data-animate>
           <h2 class="text-2xl font-black text-dark sm:text-3xl">{t('contact.form.heading')}</h2>
           <div class="mt-3 h-0.5 w-16 bg-secondary"></div>
-          <p class="mt-4 text-gray-medium">
+          <p class="mt-4 text-base text-gray-medium max-w-prose">
             {t('contact.form.description')}
           </p>
 
@@ -42,7 +42,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
           <form class="mt-8 space-y-6" action="#" method="POST" id="contact-form">
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="naam" class="block text-sm font-bold text-dark">{t('contact.form.nameLabel')}</label>
+                <label for="naam" class="block text-base font-bold text-dark">{t('contact.form.nameLabel')}</label>
                 <input
                   type="text"
                   id="naam"
@@ -53,7 +53,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
                 />
               </div>
               <div>
-                <label for="bedrijf" class="block text-sm font-bold text-dark">{t('contact.form.companyLabel')}</label>
+                <label for="bedrijf" class="block text-base font-bold text-dark">{t('contact.form.companyLabel')}</label>
                 <input
                   type="text"
                   id="bedrijf"
@@ -66,7 +66,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
 
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="email" class="block text-sm font-bold text-dark">{t('contact.form.emailLabel')}</label>
+                <label for="email" class="block text-base font-bold text-dark">{t('contact.form.emailLabel')}</label>
                 <input
                   type="email"
                   id="email"
@@ -77,7 +77,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
                 />
               </div>
               <div>
-                <label for="telefoon" class="block text-sm font-bold text-dark">{t('contact.form.phoneLabel')}</label>
+                <label for="telefoon" class="block text-base font-bold text-dark">{t('contact.form.phoneLabel')}</label>
                 <input
                   type="tel"
                   id="telefoon"
@@ -89,7 +89,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
             </div>
 
             <div>
-              <label for="dienst" class="block text-sm font-bold text-dark">{t('contact.form.serviceLabel')}</label>
+              <label for="dienst" class="block text-base font-bold text-dark">{t('contact.form.serviceLabel')}</label>
               <select
                 id="dienst"
                 name="dienst"
@@ -103,7 +103,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
             </div>
 
             <div>
-              <label for="bericht" class="block text-sm font-bold text-dark">{t('contact.form.messageLabel')}</label>
+              <label for="bericht" class="block text-base font-bold text-dark">{t('contact.form.messageLabel')}</label>
               <textarea
                 id="bericht"
                 name="bericht"
@@ -115,7 +115,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
             </div>
 
             <!-- Response promise -->
-            <div class="flex items-center gap-2 text-sm text-gray-medium">
+            <div class="flex items-center gap-2 text-base text-gray-medium">
               <svg class="h-4 w-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -125,11 +125,16 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
             <div>
               <button
                 type="submit"
-                class="inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-secondary-dark hover:border-secondary-dark"
+                id="submit-btn"
+                class="inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md hover:-translate-y-px active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
               >
-                {t('contact.form.submitButton')}
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <span id="submit-text">{t('contact.form.submitButton')}</span>
+                <svg id="submit-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                </svg>
+                <svg id="submit-spinner" class="hidden h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
               </button>
             </div>
@@ -143,7 +148,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
               </svg>
               <div>
                 <p class="font-bold text-dark">{t('contact.form.successTitle')}</p>
-                <p class="mt-1 text-sm text-gray-medium">{t('contact.form.successMessage')}</p>
+                <p class="mt-1 text-base text-gray-medium">{t('contact.form.successMessage')}</p>
               </div>
             </div>
           </div>
@@ -164,7 +169,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
                   </svg>
                   <div>
                     <p class="font-bold text-dark">{t('contact.sidebar.addressLabel')}</p>
-                    <p class="mt-1 text-sm text-gray-medium">
+                    <p class="mt-1 text-base text-gray-medium">
                       {t('contact.sidebar.addressLine1')}<br />
                       {t('contact.sidebar.addressLine2')}<br />
                       {t('contact.sidebar.addressLine3')}<br />
@@ -179,7 +184,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
                   </svg>
                   <div>
                     <p class="font-bold text-dark">{t('contact.sidebar.phoneLabel')}</p>
-                    <a href="tel:0765720030" class="mt-1 block text-sm text-secondary hover:text-secondary-light">076 – 572 0030</a>
+                    <a href="tel:0765720030" class="mt-1 block text-base font-bold text-secondary transition-colors duration-200 hover:text-secondary-dark">076 – 572 0030</a>
                   </div>
                 </li>
 
@@ -189,7 +194,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
                   </svg>
                   <div>
                     <p class="font-bold text-dark">{t('contact.sidebar.kvkLabel')}</p>
-                    <p class="mt-1 text-sm text-gray-medium">62609645</p>
+                    <p class="mt-1 text-base text-gray-medium">62609645</p>
                   </div>
                 </li>
               </ul>
@@ -204,22 +209,22 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
                 <h3 class="text-lg font-bold text-dark">{t('contact.sidebar.hoursHeading')}</h3>
               </div>
               <ul class="space-y-0">
-                <li class="flex items-center justify-between border-b border-border py-3 text-sm">
+                <li class="flex items-center justify-between border-b border-border py-3 text-base">
                   <span class="text-gray-medium">{t('contact.sidebar.monFri')}</span>
-                  <span class="font-mono text-sm font-bold text-dark">{t('contact.sidebar.monFriValue')}</span>
+                  <span class="font-mono text-base font-bold text-dark">{t('contact.sidebar.monFriValue')}</span>
                 </li>
-                <li class="flex items-center justify-between border-b border-border py-3 text-sm">
+                <li class="flex items-center justify-between border-b border-border py-3 text-base">
                   <span class="text-gray-medium">{t('contact.sidebar.saturday')}</span>
                   <span class="font-bold text-dark">{t('contact.sidebar.saturdayValue')}</span>
                 </li>
-                <li class="flex items-center justify-between py-3 text-sm">
+                <li class="flex items-center justify-between py-3 text-base">
                   <span class="text-gray-medium">{t('contact.sidebar.sunday')}</span>
                   <span class="font-bold text-dark">{t('contact.sidebar.sundayValue')}</span>
                 </li>
               </ul>
               <div class="mt-4 flex items-center gap-2 border border-secondary/20 bg-secondary/5 px-4 py-3">
                 <span class="block h-2 w-2 animate-pulse bg-secondary rounded-full"></span>
-                <span class="text-sm font-bold text-secondary-dark">{t('contact.sidebar.securityNote')}</span>
+                <span class="text-base font-bold text-secondary-dark">{t('contact.sidebar.securityNote')}</span>
               </div>
             </div>
 
@@ -228,7 +233,8 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
               href="https://www.linkedin.com/company/ecopark-breda"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-4 border border-border bg-light p-6 text-dark transition-all hover:border-primary/30"
+              class="flex items-center gap-4 border border-border bg-light p-6 text-dark transition-all duration-200 hover:border-primary/30 hover:shadow-sm"
+              aria-label="Ecopark Breda on LinkedIn"
             >
               <div class="flex h-10 w-10 items-center justify-center border border-border bg-white">
                 <svg class="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -237,7 +243,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
               </div>
               <div>
                 <p class="font-bold">{t('contact.sidebar.linkedinTitle')}</p>
-                <p class="text-sm text-gray-medium">{t('contact.sidebar.linkedinSubtitle')}</p>
+                <p class="text-base text-gray-medium">{t('contact.sidebar.linkedinSubtitle')}</p>
               </div>
               <svg class="ml-auto h-5 w-5 text-gray-muted" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -258,7 +264,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
         <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
           {t('contact.map.heading')}
         </h2>
-        <p class="mt-4 text-lg text-gray-medium">
+        <p class="mt-4 text-lg text-gray-medium max-w-prose mx-auto">
           {t('contact.map.description')}
         </p>
       </div>
@@ -283,7 +289,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
         {directions.map((direction) => (
           <div class="bg-white p-6">
             <span class="spec-label">{direction.label}</span>
-            <p class="mt-2 text-sm text-gray-medium">{direction.description}</p>
+            <p class="mt-2 text-base text-gray-medium">{direction.description}</p>
           </div>
         ))}
       </div>
@@ -294,13 +300,26 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const successMessage = document.getElementById('form-success');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const submitText = document.getElementById('submit-text');
+  const submitIcon = document.getElementById('submit-icon');
+  const submitSpinner = document.getElementById('submit-spinner');
 
-  if (form && successMessage) {
+  if (form && successMessage && submitBtn) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // In production, this would send to a backend
-      form.classList.add('hidden');
-      successMessage.classList.remove('hidden');
+
+      // Show loading state
+      submitBtn.disabled = true;
+      if (submitText) submitText.textContent = 'Verzenden...';
+      if (submitIcon) submitIcon.classList.add('hidden');
+      if (submitSpinner) submitSpinner.classList.remove('hidden');
+
+      // Simulate send (replace with real backend in production)
+      setTimeout(() => {
+        form.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+      }, 800);
     });
   }
 </script>

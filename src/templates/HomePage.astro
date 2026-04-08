@@ -63,7 +63,7 @@ const benefits = t('home.future.benefits') as Array<string>;
         <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
           {t('home.services.heading')}
         </h2>
-        <p class="mt-4 text-lg text-gray-medium">
+        <p class="mt-4 text-lg text-gray-medium max-w-prose">
           {t('home.services.description')}
         </p>
       </div>
@@ -98,7 +98,7 @@ const benefits = t('home.future.benefits') as Array<string>;
           {t('home.facility.heading')}
         </h2>
         <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
-        <p class="mt-4 text-lg text-gray-medium">
+        <p class="mt-4 text-lg text-gray-medium max-w-prose">
           {t('home.facility.description')}
         </p>
       </div>
@@ -112,7 +112,7 @@ const benefits = t('home.future.benefits') as Array<string>;
           {specs.map((spec) => (
             <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
               <span class="spec-label text-xs">{spec.label}</span>
-              <p class="mt-2 text-lg font-bold text-dark">{spec.value}</p>
+              <p class="mt-2 text-base font-bold text-dark">{spec.value}</p>
             </div>
           ))}
         </div>
@@ -134,7 +134,7 @@ const benefits = t('home.future.benefits') as Array<string>;
             {t('home.future.heading')}
           </h2>
           <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
-          <p class="mt-6 text-lg leading-relaxed text-gray-medium">
+          <p class="mt-6 text-lg leading-relaxed text-gray-medium max-w-prose">
             {t('home.future.description')}
           </p>
         </div>
@@ -143,11 +143,11 @@ const benefits = t('home.future.benefits') as Array<string>;
             {benefits.map((benefit) => (
               <li class="flex items-start gap-3">
                 <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary"></span>
-                <span class="text-dark/80">{benefit}</span>
+                <span class="text-base font-medium text-dark/80">{benefit}</span>
               </li>
             ))}
           </ul>
-          <a href={localePath(locale, '/contact/')} class="mt-8 inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-secondary-dark hover:border-secondary-dark">
+          <a href={localePath(locale, '/contact/')} class="mt-8 inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md hover:-translate-y-px active:translate-y-0">
             {t('home.future.ctaButton')}
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </a>

@@ -21,6 +21,24 @@
   --font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background-color: #283891;
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: top 200ms ease-out;
+}
+
+.skip-to-content:focus {
+  top: 0.5rem;
+}
+
 /* Branded text selection — green for brand identity */
 ::selection {
   background-color: #39b54a;
@@ -41,6 +59,7 @@ html {
 body {
   font-size: 1.0625rem;
   line-height: 1.6;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,6 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.15;
   font-weight: 700;
+  text-wrap: balance;
 }
 
 /* Modular type scale */
@@ -80,11 +100,14 @@ h1, h2, h3, h4, h5, h6 {
 .text-body {
   font-size: 1.0625rem;
   line-height: 1.6;
+  font-weight: 500;
+  text-wrap: pretty;
 }
 
 .text-small {
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.5;
+  font-weight: 500;
 }
 
 /* Industrial stat numbers */
@@ -111,6 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn:hover {
+  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(12,18,41,0.10);
 }
 
@@ -120,6 +144,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn:focus-visible {
+  outline: 2px solid #39b54a;
+  outline-offset: 2px;
+}
+
+/* All interactive elements — focus visible ring */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
   outline: 2px solid #39b54a;
   outline-offset: 2px;
 }
@@ -266,12 +298,11 @@ textarea:focus-visible {
   }
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
   animation: focus-ring-expand 0.3s ease-out forwards;
   border-color: #39b54a;
-  outline: none;
 }
 
 /* Contact sidebar card top accent */
@@ -303,6 +334,11 @@ textarea:focus {
 .nav-link-active::after {
   width: 70%;
   background-color: #39b54a;
+}
+
+/* Footer link hover — underline slide-in */
+footer a {
+  transition: color 200ms ease-out, opacity 200ms ease-out;
 }
 
 /* Reduced motion */

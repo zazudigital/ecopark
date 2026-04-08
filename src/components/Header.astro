@@ -16,7 +16,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
 
 <div class="fixed top-0 left-0 right-0 z-50" id="header-wrapper">
   <!-- Top contact bar -->
-  <div class="hidden bg-[#eceef5] text-xs text-gray-medium md:block transition-all duration-300 overflow-hidden" id="top-bar">
+  <div class="hidden bg-[#eceef5] text-xs font-medium text-gray-medium md:block transition-all duration-300 overflow-hidden" id="top-bar">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
       <div class="flex items-center gap-4">
         <a href="tel:0765720030" class="flex items-center gap-1.5 transition-colors hover:text-dark">
@@ -57,7 +57,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
             <a
               href={link.href}
               class:list={[
-                'nav-link px-4 py-2 text-sm font-bold transition-colors duration-200',
+                'nav-link px-4 py-2 text-base font-bold transition-colors duration-200',
                 currentPath === link.href
                   ? 'text-primary nav-link-active'
                   : 'text-gray-medium hover:text-dark',
@@ -73,11 +73,13 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
               <a
                 href={localePath(l, pagePath)}
                 class:list={[
-                  'px-2.5 py-1 text-xs font-bold tracking-wide transition-all rounded-[5px]',
+                  'px-2.5 py-1.5 text-xs font-bold tracking-wide transition-all duration-200 rounded-[5px]',
                   l === locale
                     ? 'bg-white text-primary shadow-sm'
-                    : 'text-gray-muted hover:text-dark',
+                    : 'text-gray-muted hover:text-dark hover:bg-white/50',
                 ]}
+                aria-label={`Switch to ${localeMap[l].label}`}
+                aria-current={l === locale ? 'true' : undefined}
               >
                 {localeMap[l].label}
               </a>
@@ -85,7 +87,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
           </div>
           <a
             href={localePath(locale, '/contact/')}
-            class="ml-3 inline-flex items-center border-2 border-secondary bg-secondary px-5 py-2.5 text-sm font-bold text-white transition-colors duration-200 hover:bg-secondary-dark hover:border-secondary-dark"
+            class="ml-3 inline-flex items-center border-2 border-secondary bg-secondary px-5 py-2.5 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md active:translate-y-px"
           >
             {t('header.ctaButton')}
           </a>
@@ -113,22 +115,24 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
     <!-- Mobile Navigation -->
     <div
       id="mobile-menu"
-      class="hidden border-t border-border bg-white md:hidden"
+      class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-out border-t border-border bg-white md:hidden"
       role="navigation"
       aria-label="Mobile navigation"
     >
       <!-- Mobile Language Switcher -->
-      <div class="flex items-center px-4 py-3 border-b border-border">
+      <div class="flex items-center px-4 py-3 border-b border-border" role="group" aria-label="Language">
         <div class="flex items-center bg-light rounded-md p-0.5">
           {locales.map(l => (
             <a
               href={localePath(l, pagePath)}
               class:list={[
-                'px-4 py-2 text-sm font-bold tracking-wide transition-all rounded-[5px]',
+                'px-4 py-2 text-sm font-bold tracking-wide transition-all duration-200 rounded-[5px]',
                 l === locale
                   ? 'bg-white text-primary shadow-sm'
-                  : 'text-gray-muted hover:text-dark',
+                  : 'text-gray-muted hover:text-dark hover:bg-white/50',
               ]}
+              aria-label={`Switch to ${localeMap[l].label}`}
+              aria-current={l === locale ? 'true' : undefined}
             >
               {localeMap[l].label}
             </a>
@@ -152,7 +156,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
         ))}
         <a
           href={localePath(locale, '/contact/')}
-          class="mt-2 block border-2 border-secondary bg-secondary px-4 py-3 text-center text-base font-bold text-white transition-colors hover:bg-secondary-dark hover:border-secondary-dark"
+          class="mt-2 block border-2 border-secondary bg-secondary px-4 py-3 text-center text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md"
         >
           {t('header.ctaButton')}
         </a>
@@ -172,8 +176,12 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
 
   if (btn && menu && iconOpen && iconClose) {
     btn.addEventListener('click', () => {
-      const isOpen = !menu.classList.contains('hidden');
-      menu.classList.toggle('hidden');
+      const isOpen = menu.style.maxHeight && menu.style.maxHeight !== '0px';
+      if (isOpen) {
+        menu.style.maxHeight = '0px';
+      } else {
+        menu.style.maxHeight = menu.scrollHeight + 'px';
+      }
       iconOpen.classList.toggle('hidden');
       iconClose.classList.toggle('hidden');
       btn.setAttribute('aria-expanded', String(!isOpen));

@@ -44,7 +44,7 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
                 {service.id === 'binnenvaart' && (
                   <span class="spec-label mt-3 inline-block border border-secondary bg-secondary/5 px-3 py-1 text-secondary">{t('diensten.comingSoon')}</span>
                 )}
-                <p class="mt-4 text-base leading-relaxed text-gray-medium">{service.description}</p>
+                <p class="mt-4 text-base leading-relaxed text-gray-medium max-w-prose">{service.description}</p>
               </div>
 
               <!-- Features -->
@@ -53,7 +53,7 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
                   {service.features.map((feature) => (
                     <li class="flex items-start gap-3">
                       <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary"></span>
-                      <span class="text-sm text-gray-medium">{feature}</span>
+                      <span class="text-base text-gray-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -80,14 +80,14 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
           {t('diensten.vihb.heading')}
         </h2>
         <div class="mx-auto mt-4 h-0.5 w-16 bg-secondary"></div>
-        <p class="mt-6 text-lg leading-relaxed text-gray-medium">
+        <p class="mt-6 text-lg leading-relaxed text-gray-medium max-w-prose mx-auto">
           {t('diensten.vihb.description')}
         </p>
         <div class="mt-10 grid gap-px bg-border sm:grid-cols-4">
           {vihbLetters.map((item) => (
             <div class="bg-white p-6">
               <p class="text-2xl font-black text-primary">{item.letter}</p>
-              <p class="mt-1 text-sm font-bold text-gray-medium">{item.label}</p>
+              <p class="mt-1 text-base font-bold text-gray-medium">{item.label}</p>
             </div>
           ))}
         </div>

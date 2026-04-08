@@ -58,8 +58,9 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
   </head>
   <body class="bg-light font-sans text-dark antialiased">
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
     <Header />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
