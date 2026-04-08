@@ -27,20 +27,21 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
   />
 
   <!-- Services Detail -->
-  <section class="bg-white py-20 lg:py-28">
+  <section class="bg-white py-20 lg:py-28" aria-labelledby="services-detail-heading">
+    <h2 id="services-detail-heading" class="sr-only">{t('diensten.hero.title')}</h2>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="space-y-0">
-        {services.map((service) => (
-          <div id={service.id} class="border-b border-border py-16 first:border-t first:border-border first:pt-0" data-animate>
-            <div class="grid items-start gap-12 lg:grid-cols-12">
+        {services.map((service, idx) => (
+          <div id={service.id} class="border-b border-border py-16 first:border-t first:border-border first:pt-0 lg:py-20" data-animate={idx % 2 === 0 ? "fade-up" : "fade-left"}>
+            <div class="grid items-start gap-8 lg:grid-cols-12 lg:gap-12 min-w-0">
               <!-- Number -->
               <div class="lg:col-span-2">
                 <span class="stat-number text-5xl text-primary lg:text-6xl">{service.number}</span>
               </div>
 
               <!-- Content -->
-              <div class="lg:col-span-6">
-                <h2 class="text-2xl font-black text-dark sm:text-3xl">{service.title}</h2>
+              <div class="lg:col-span-6 min-w-0">
+                <h3 class="text-2xl font-black text-dark text-balance break-words sm:text-3xl">{service.title}</h3>
                 {service.id === 'binnenvaart' && (
                   <span class="spec-label mt-3 inline-block border border-secondary bg-secondary/5 px-3 py-1 text-secondary">{t('diensten.comingSoon')}</span>
                 )}
@@ -48,12 +49,12 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
               </div>
 
               <!-- Features -->
-              <div class="lg:col-span-4">
+              <div class="lg:col-span-4 min-w-0">
                 <ul class="space-y-3 border-l-2 border-primary/20 pl-6">
                   {service.features.map((feature) => (
-                    <li class="flex items-start gap-3">
-                      <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary"></span>
-                      <span class="text-base text-gray-medium">{feature}</span>
+                    <li class="flex items-start gap-3 min-w-0">
+                      <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary" aria-hidden="true"></span>
+                      <span class="text-base font-medium text-gray-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -67,27 +68,27 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
 
   <!-- Visual break -->
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-    <img src="/images/containers.jpg" alt={t('diensten.containersAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover rounded-sm" />
+    <img src="/images/containers.jpg" alt={t('diensten.containersAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover object-center rounded-sm" style="aspect-ratio: 800/600;" />
   </div>
 
   <!-- VIHB Section -->
-  <section class="bg-light py-20 lg:py-28">
+  <section class="bg-light py-20 lg:py-28" aria-labelledby="vihb-heading">
     <div class="border-t border-border"></div>
-    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center" data-animate>
+    <div class="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-20">
+      <div class="mx-auto max-w-3xl text-center" data-animate="fade-up">
         <p class="spec-label mb-4">{t('diensten.vihb.label')}</p>
-        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+        <h2 id="vihb-heading" class="text-3xl font-black tracking-tight text-dark text-balance sm:text-4xl">
           {t('diensten.vihb.heading')}
         </h2>
         <div class="mx-auto mt-4 h-0.5 w-16 bg-secondary"></div>
         <p class="mt-6 text-lg leading-relaxed text-gray-medium max-w-prose mx-auto">
           {t('diensten.vihb.description')}
         </p>
-        <div class="mt-10 grid gap-px bg-border sm:grid-cols-4">
+        <div class="mt-12 grid gap-px bg-border sm:grid-cols-4" data-animate-stagger>
           {vihbLetters.map((item) => (
-            <div class="bg-white p-6">
+            <div class="bg-white p-6 min-w-0">
               <p class="text-2xl font-black text-primary">{item.letter}</p>
-              <p class="mt-1 text-base font-bold text-gray-medium">{item.label}</p>
+              <p class="mt-1 text-base font-bold text-gray-medium break-words">{item.label}</p>
             </div>
           ))}
         </div>

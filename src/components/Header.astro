@@ -52,12 +52,12 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
         </div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+        <nav class="hidden items-center gap-1 md:flex min-w-0" aria-label="Main navigation">
           {navLinks.map((link) => (
             <a
               href={link.href}
               class:list={[
-                'nav-link px-4 py-2 text-base font-bold transition-colors duration-200',
+                'nav-link px-3 py-2 text-base font-bold transition-colors duration-200 whitespace-nowrap lg:px-4',
                 currentPath === link.href
                   ? 'text-primary nav-link-active'
                   : 'text-gray-medium hover:text-dark',
@@ -68,7 +68,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
             </a>
           ))}
           <!-- Language Switcher -->
-          <div class="flex items-center ml-3 bg-light rounded-md p-0.5" role="group" aria-label="Language">
+          <div class="flex items-center ml-2 bg-light rounded-md p-0.5 shrink-0 lg:ml-3" role="group" aria-label="Language">
             {locales.map(l => (
               <a
                 href={localePath(l, pagePath)}
@@ -87,7 +87,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
           </div>
           <a
             href={localePath(locale, '/contact/')}
-            class="ml-3 inline-flex items-center border-2 border-secondary bg-secondary px-5 py-2.5 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md active:translate-y-px"
+            class="ml-2 inline-flex items-center shrink-0 border-2 border-secondary bg-secondary px-5 py-2.5 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md active:translate-y-px lg:ml-3"
           >
             {t('header.ctaButton')}
           </a>

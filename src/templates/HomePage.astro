@@ -56,11 +56,11 @@ const benefits = t('home.future.benefits') as Array<string>;
   <hr class="section-hr" />
 
   <!-- Services Section — Alternating full-width rows -->
-  <section class="bg-white py-16 lg:py-24" id="diensten">
+  <section class="bg-white py-20 lg:py-28" id="diensten" aria-labelledby="services-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-16 max-w-2xl" data-animate>
+      <div class="mb-12 max-w-2xl lg:mb-16" data-animate="fade-up">
         <p class="spec-label mb-3">{t('home.services.label')}</p>
-        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+        <h2 id="services-heading" class="text-3xl font-black tracking-tight text-dark text-balance sm:text-4xl">
           {t('home.services.heading')}
         </h2>
         <p class="mt-4 text-lg text-gray-medium max-w-prose">
@@ -68,8 +68,8 @@ const benefits = t('home.future.benefits') as Array<string>;
         </p>
       </div>
 
-      <div class="mb-12" data-animate>
-        <img src="/images/trucks.jpg" alt={t('home.services.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover rounded-sm" />
+      <div class="mb-12" data-animate="fade-up">
+        <img src="/images/trucks.jpg" alt={t('home.services.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover object-center rounded-sm" style="aspect-ratio: 800/600;" />
       </div>
 
       <div data-animate-stagger>
@@ -90,11 +90,11 @@ const benefits = t('home.future.benefits') as Array<string>;
   <hr class="section-hr" />
 
   <!-- Facility Section — Spec sheet style -->
-  <section class="bg-light py-24 lg:py-32">
+  <section class="bg-light py-24 lg:py-32" aria-labelledby="facility-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-16 max-w-2xl" data-animate>
+      <div class="mb-12 max-w-2xl lg:mb-16" data-animate="fade-up">
         <p class="spec-label mb-3">{t('home.facility.label')}</p>
-        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+        <h2 id="facility-heading" class="text-3xl font-black tracking-tight text-dark text-balance sm:text-4xl">
           {t('home.facility.heading')}
         </h2>
         <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
@@ -103,16 +103,16 @@ const benefits = t('home.future.benefits') as Array<string>;
         </p>
       </div>
 
-      <div class="mb-12" data-animate>
-        <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover rounded-sm" />
+      <div class="mb-12" data-animate="fade-up">
+        <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover object-center rounded-sm" style="aspect-ratio: 800/600;" />
       </div>
 
-      <div class="border border-border" data-animate>
+      <div class="border border-border" data-animate="fade-up">
         <div class="spec-grid grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3" data-animate-stagger>
           {specs.map((spec) => (
-            <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200">
+            <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200 min-w-0">
               <span class="spec-label text-xs">{spec.label}</span>
-              <p class="mt-2 text-base font-bold text-dark">{spec.value}</p>
+              <p class="mt-2 text-base font-bold text-dark break-words">{spec.value}</p>
             </div>
           ))}
         </div>
@@ -124,13 +124,13 @@ const benefits = t('home.future.benefits') as Array<string>;
   <hr class="section-hr" />
 
   <!-- Future Plans Section -->
-  <section class="bg-white py-20 lg:py-28">
+  <section class="bg-white py-20 lg:py-28" aria-labelledby="future-heading">
     <div class="border-t border-border"></div>
-    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
-      <div class="grid items-start gap-12 lg:grid-cols-2">
-        <div data-animate>
+    <div class="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-20">
+      <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+        <div data-animate="fade-up">
           <span class="spec-label inline-block border border-secondary bg-secondary/5 px-3 py-1 mb-6 text-secondary">{t('home.future.badge')}</span>
-          <h2 class="text-3xl font-black text-dark sm:text-4xl lg:text-5xl">
+          <h2 id="future-heading" class="text-3xl font-black text-dark text-balance sm:text-4xl lg:text-5xl">
             {t('home.future.heading')}
           </h2>
           <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
@@ -138,18 +138,18 @@ const benefits = t('home.future.benefits') as Array<string>;
             {t('home.future.description')}
           </p>
         </div>
-        <div class="lg:pt-4" data-animate>
-          <ul class="space-y-4 border-l-2 border-primary/20 pl-6">
+        <div class="lg:pt-4" data-animate="fade-left">
+          <ul class="space-y-5 border-l-2 border-primary/20 pl-6">
             {benefits.map((benefit) => (
-              <li class="flex items-start gap-3">
-                <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary"></span>
+              <li class="flex items-start gap-3 min-w-0">
+                <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary" aria-hidden="true"></span>
                 <span class="text-base font-medium text-dark/80">{benefit}</span>
               </li>
             ))}
           </ul>
-          <a href={localePath(locale, '/contact/')} class="mt-8 inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md hover:-translate-y-px active:translate-y-0">
+          <a href={localePath(locale, '/contact/')} class="mt-10 inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md hover:-translate-y-px active:translate-y-0">
             {t('home.future.ctaButton')}
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
       </div>
