@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ecoparkbreda.nl/sitemap-index.xml

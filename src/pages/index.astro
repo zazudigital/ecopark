@@ -38,7 +38,38 @@ const services = [
 ];
 ---
 
-<Layout title="Ecopark Breda — Afvaloverslag, Vrachtwagenstalling & Logistiek Hub in Breda">
+<Layout
+  title="Afvaloverslag & Vrachtwagenstalling Breda | Ecopark"
+  description="Ecopark Breda B.V. — professionele afvaloverslag, beveiligde vrachtwagenstalling en logistiek op 2.4 hectare verhard terrein. VIHB gecertificeerd. Bel 076-572 0030."
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ecopark Breda B.V.",
+    "description": "Professionele afvaloverslag, beveiligde vrachtwagenparkeerplaatsen en logistieke dienstverlening op 2.4 hectare verhard terrein in Breda.",
+    "url": "https://ecoparkbreda.nl",
+    "telephone": "+31765720030",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Nieuwe Bredase Baan 30",
+      "addressLocality": "Breda",
+      "postalCode": "4825 BP",
+      "addressCountry": "NL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.5783,
+      "longitude": 4.7738
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      }
+    ]
+  }}
+>
   <!-- Hero Section with Stats integrated -->
   <Hero
     title="Meer dan goed genoeg"

@@ -17,7 +17,7 @@
   --color-border: #dce3ef;
 
   --font-family-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-family-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-family-heading: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
@@ -48,7 +48,7 @@ body {
 
 /* Typography scale with clamp */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.15;
   font-weight: 700;
 }
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Industrial stat numbers */
 .stat-number {
-  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -160,7 +160,7 @@ textarea:focus-visible {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #283891;
+  color: var(--color-primary);
 }
 
 /* Hero bottom gradient fade — disabled, stats sit at bottom */
