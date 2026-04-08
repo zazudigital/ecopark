@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTA from '../components/CTA.astro';
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
+const services = t('diensten.services') as Array<{
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  features: string[];
+}>;
+const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label: string }>;
+---
+
+<Layout title={t('diensten.meta.title')} description={t('diensten.meta.description')}>
+  <!-- Hero -->
+  <Hero
+    title={t('diensten.hero.title')}
+    subtitle={t('diensten.hero.subtitle')}
+    showCta={false}
+    compact={true}
+  />
+
+  <!-- Services Detail -->
+  <section class="bg-white py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="space-y-0">
+        {services.map((service) => (
+          <div id={service.id} class="border-b border-border py-16 first:border-t first:border-border first:pt-0" data-animate>
+            <div class="grid items-start gap-12 lg:grid-cols-12">
+              <!-- Number -->
+              <div class="lg:col-span-2">
+                <span class="stat-number text-5xl text-primary lg:text-6xl">{service.number}</span>
+              </div>
+
+              <!-- Content -->
+              <div class="lg:col-span-6">
+                <h2 class="text-2xl font-black text-dark sm:text-3xl">{service.title}</h2>
+                {service.id === 'binnenvaart' && (
+                  <span class="spec-label mt-3 inline-block border border-secondary bg-secondary/5 px-3 py-1 text-secondary">{t('diensten.comingSoon')}</span>
+                )}
+                <p class="mt-4 text-base leading-relaxed text-gray-medium">{service.description}</p>
+              </div>
+
+              <!-- Features -->
+              <div class="lg:col-span-4">
+                <ul class="space-y-3 border-l-2 border-primary/20 pl-6">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start gap-3">
+                      <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary"></span>
+                      <span class="text-sm text-gray-medium">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual break -->
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+    <img src="/images/containers.jpg" alt={t('diensten.containersAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover rounded-sm" />
+  </div>
+
+  <!-- VIHB Section -->
+  <section class="bg-light py-20 lg:py-28">
+    <div class="border-t border-border"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center" data-animate>
+        <p class="spec-label mb-4">{t('diensten.vihb.label')}</p>
+        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+          {t('diensten.vihb.heading')}
+        </h2>
+        <div class="mx-auto mt-4 h-0.5 w-16 bg-secondary"></div>
+        <p class="mt-6 text-lg leading-relaxed text-gray-medium">
+          {t('diensten.vihb.description')}
+        </p>
+        <div class="mt-10 grid gap-px bg-border sm:grid-cols-4">
+          {vihbLetters.map((item) => (
+            <div class="bg-white p-6">
+              <p class="text-2xl font-black text-primary">{item.letter}</p>
+              <p class="mt-1 text-sm font-bold text-gray-medium">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    title={t('diensten.ctaTitle')}
+    subtitle={t('diensten.ctaSubtitle')}
+  />
+</Layout>

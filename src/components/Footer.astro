@@ -1,5 +1,18 @@
 ---
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
 const year = new Date().getFullYear();
+
+const serviceLinks = t('footer.serviceLinks') as Array<{ label: string; anchor: string }>;
+const navLinks = [
+  { href: localePath(locale, '/'), label: t('nav.home') },
+  { href: localePath(locale, '/diensten/'), label: t('nav.diensten') },
+  { href: localePath(locale, '/over-ons/'), label: t('nav.overOns') },
+  { href: localePath(locale, '/contact/'), label: t('nav.contact') },
+];
 ---
 
 <footer>
@@ -14,7 +27,7 @@ const year = new Date().getFullYear();
       <div class="relative grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <!-- Company Info -->
         <div class="lg:col-span-1">
-          <a href="/" class="mb-6 inline-flex items-center gap-3" aria-label="Ecopark Breda">
+          <a href={localePath(locale, '/')} class="mb-6 inline-flex items-center gap-3" aria-label="Ecopark Breda">
             <div class="flex h-10 w-10 items-center justify-center bg-white/20">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-5 w-5">
                 <path d="M3 7l6-4 6 4 6-4v14l-6 4-6-4-6 4V7z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" fill="none"/>
@@ -27,60 +40,43 @@ const year = new Date().getFullYear();
             </div>
           </a>
           <p class="mt-4 text-base leading-relaxed text-white/90">
-            Professionele afvaloverslag, beveiligde stallingsplaatsen en logistieke dienstverlening op 2.4 hectare verhard terrein aan de Nieuwe Bredase Baan. VIHB gecertificeerd.
+            {t('footer.brandDescription')}
           </p>
 
           <!-- Opening hours -->
           <div class="mt-6 border-t border-white/20 pt-4">
-            <p class="text-xs font-bold uppercase tracking-widest text-white/60">Openingstijden</p>
-            <p class="mt-2 text-sm text-white/80">Ma-Vr: 07:00-17:00 | Za: Op afspraak</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-white/60">{t('footer.openingHoursLabel')}</p>
+            <p class="mt-2 text-sm text-white/80">{t('footer.openingHoursValue')}</p>
           </div>
         </div>
 
         <!-- Services -->
         <div>
-          <h3 class="footer-heading mb-5 text-xs font-bold uppercase tracking-widest text-white">Diensten</h3>
+          <h3 class="footer-heading mb-5 text-xs font-bold uppercase tracking-widest text-white">{t('footer.servicesHeading')}</h3>
           <ul class="space-y-3">
-            <li>
-              <a href="/diensten/#afval-overslag" class="text-sm text-white/80 transition-colors hover:text-white">Afvaloverslag & verwerking</a>
-            </li>
-            <li>
-              <a href="/diensten/#veilige-opslag" class="text-sm text-white/80 transition-colors hover:text-white">Vrachtwagenstalling & parkeren</a>
-            </li>
-            <li>
-              <a href="/diensten/#container-opslag" class="text-sm text-white/80 transition-colors hover:text-white">Containeropslag & beheer</a>
-            </li>
-            <li>
-              <a href="/diensten/#bulk-materiaal" class="text-sm text-white/80 transition-colors hover:text-white">Bulkgoederenoverslag</a>
-            </li>
-            <li>
-              <a href="/diensten/#beveiliging" class="text-sm text-white/80 transition-colors hover:text-white">24/7 Terreinbeveiliging</a>
-            </li>
+            {serviceLinks.map((link) => (
+              <li>
+                <a href={localePath(locale, `/diensten/${link.anchor}`)} class="text-sm text-white/80 transition-colors hover:text-white">{link.label}</a>
+              </li>
+            ))}
           </ul>
         </div>
 
         <!-- Quick Links -->
         <div>
-          <h3 class="footer-heading mb-5 text-xs font-bold uppercase tracking-widest text-white">Navigatie</h3>
+          <h3 class="footer-heading mb-5 text-xs font-bold uppercase tracking-widest text-white">{t('footer.navigationHeading')}</h3>
           <ul class="space-y-3">
-            <li>
-              <a href="/" class="text-sm text-white/80 transition-colors hover:text-white">Home</a>
-            </li>
-            <li>
-              <a href="/diensten/" class="text-sm text-white/80 transition-colors hover:text-white">Diensten</a>
-            </li>
-            <li>
-              <a href="/over-ons/" class="text-sm text-white/80 transition-colors hover:text-white">Over Ons</a>
-            </li>
-            <li>
-              <a href="/contact/" class="text-sm text-white/80 transition-colors hover:text-white">Contact</a>
-            </li>
+            {navLinks.map((link) => (
+              <li>
+                <a href={link.href} class="text-sm text-white/80 transition-colors hover:text-white">{link.label}</a>
+              </li>
+            ))}
           </ul>
         </div>
 
         <!-- Contact Info -->
         <div>
-          <h3 class="footer-heading mb-5 text-xs font-bold uppercase tracking-widest text-white">Contact</h3>
+          <h3 class="footer-heading mb-5 text-xs font-bold uppercase tracking-widest text-white">{t('footer.contactHeading')}</h3>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <svg class="mt-0.5 h-5 w-5 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -106,12 +102,12 @@ const year = new Date().getFullYear();
             target="_blank"
             rel="noopener noreferrer"
             class="mt-6 flex items-center gap-3 border border-white/20 px-4 py-3 text-white/90 transition-all hover:border-white/50 hover:bg-white/10 hover:text-white"
-            aria-label="Volg ons op LinkedIn"
+            aria-label="LinkedIn"
           >
             <svg class="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
-            <span class="text-sm font-bold">Volg ons op LinkedIn</span>
+            <span class="text-sm font-bold">{t('footer.linkedinLabel')}</span>
           </a>
         </div>
       </div>
@@ -122,10 +118,10 @@ const year = new Date().getFullYear();
   <div class="bg-secondary-dark">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
       <p class="text-sm text-white/70">
-        &copy; {year} Ecopark Breda B.V. Alle rechten voorbehouden.
+        &copy; {year} Ecopark Breda B.V. {t('footer.copyright')}
       </p>
       <p class="text-sm text-white/70">
-        VIHB Geregistreerd &middot; KvK 62609645
+        {t('footer.vihbKvk')} &middot; KvK 62609645
       </p>
     </div>
   </div>

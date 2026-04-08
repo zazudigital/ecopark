@@ -1,4 +1,9 @@
 ---
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
 interface Props {
   title: string;
   subtitle: string;
@@ -35,19 +40,19 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
       {showCta && (
         <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row">
           <a
-            href="/contact/"
+            href={localePath(locale, '/contact/')}
             class="inline-flex items-center gap-2 bg-secondary px-8 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-secondary-dark rounded-sm"
           >
-            Vraag een offerte aan
+            {t('hero.ctaPrimary')}
             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </a>
           <a
-            href="/diensten/"
+            href={localePath(locale, '/diensten/')}
             class="inline-flex items-center gap-2 border border-white/30 px-8 py-4 text-base font-semibold text-white/90 transition-all duration-200 hover:border-white/60 hover:text-white rounded-sm"
           >
-            Bekijk onze diensten
+            {t('hero.ctaSecondary')}
           </a>
         </div>
       )}
@@ -57,20 +62,20 @@ const { title, subtitle, showCta = true, compact = false, showStats = false } = 
       <div class="mt-14 border-t border-white/15 pt-8">
         <div class="grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-4">
           <div>
-            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">50+</span>
-            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Vrachtwagens per dag</p>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">{t('hero.stats.trucksValue')}</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">{t('hero.stats.trucksLabel')}</p>
           </div>
           <div>
-            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">2.4</span>
-            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Hectare terrein</p>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">{t('hero.stats.terrainValue')}</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">{t('hero.stats.terrainLabel')}</p>
           </div>
           <div>
-            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">180K</span>
-            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Ton jaarcapaciteit</p>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">{t('hero.stats.capacityValue')}</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">{t('hero.stats.capacityLabel')}</p>
           </div>
           <div>
-            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">24/7</span>
-            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">Beveiligd</p>
+            <span class="stat-number text-4xl lg:text-5xl text-white font-bold" style="font-variant-numeric: tabular-nums;">{t('hero.stats.securityValue')}</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-white/60 mt-1">{t('hero.stats.securityLabel')}</p>
           </div>
         </div>
       </div>

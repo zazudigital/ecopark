@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CTA from '../components/CTA.astro';
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+
+const paragraphs = t('overOns.philosophy.paragraphs') as Array<string>;
+const whyUsItems = t('overOns.whyUs.items') as Array<{ number: string; title: string; description: string }>;
+const charityParagraphs = t('overOns.charity.paragraphs') as Array<string>;
+const companyFields = t('overOns.companyDetails.fields') as Array<{ label: string; value: string; isPhone?: boolean }>;
+---
+
+<Layout title={t('overOns.meta.title')} description={t('overOns.meta.description')}>
+  <!-- Hero -->
+  <Hero
+    title={t('overOns.hero.title')}
+    subtitle={t('overOns.hero.subtitle')}
+    showCta={false}
+    compact={true}
+  />
+
+  <!-- Philosophy Section -->
+  <section class="bg-white py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-16 lg:grid-cols-2">
+        <div data-animate>
+          <p class="spec-label mb-3">{t('overOns.philosophy.label')}</p>
+          <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+            {t('overOns.philosophy.heading')}
+          </h2>
+          <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
+          {paragraphs.map((paragraph) => (
+            <p class="mt-6 text-lg leading-relaxed text-gray-medium">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <!-- Image and quote block -->
+        <div class="space-y-8 lg:mt-16" data-animate>
+          <img src="/images/trucks.jpg" alt={t('overOns.philosophy.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover rounded-sm" />
+        <div class="border-l-2 border-primary pl-8">
+          <blockquote class="text-3xl font-black italic text-dark lg:text-4xl">
+            {t('overOns.philosophy.quote')}
+          </blockquote>
+          <div class="mt-6 h-px w-12 bg-border"></div>
+          <p class="mt-4 text-gray-medium">{t('overOns.philosophy.quoteAttribution')}</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Info -->
+  <section class="bg-light py-20 lg:py-28">
+    <div class="border-t border-border"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-16 max-w-2xl text-center" data-animate>
+        <p class="spec-label mb-3">{t('overOns.whyUs.label')}</p>
+        <h2 class="text-3xl font-black tracking-tight text-dark sm:text-4xl">
+          {t('overOns.whyUs.heading')}
+        </h2>
+        <p class="mt-4 text-lg text-gray-medium">
+          {t('overOns.whyUs.description')}
+        </p>
+      </div>
+
+      <div class="grid gap-px bg-border md:grid-cols-3" data-animate-stagger>
+        {whyUsItems.map((item) => (
+          <div class="bg-white p-8">
+            <span class="spec-label">{item.number}</span>
+            <h3 class="mt-4 mb-3 text-xl font-bold text-dark">{item.title}</h3>
+            <p class="text-gray-medium leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Charity Section -->
+  <section class="bg-white py-20 lg:py-28">
+    <div class="border-t border-border"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-12 lg:grid-cols-2">
+        <!-- Text -->
+        <div data-animate>
+          <span class="spec-label inline-block border border-primary px-3 py-1 mb-6">{t('overOns.charity.label')}</span>
+          <h2 class="text-3xl font-black text-dark sm:text-4xl">
+            {t('overOns.charity.heading')}
+          </h2>
+          <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
+          {charityParagraphs.map((paragraph) => (
+            <p class="mt-6 text-lg leading-relaxed text-gray-medium">
+              {paragraph}
+            </p>
+          ))}
+          <a
+            href="https://www.prithipura.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark"
+          >
+            {t('overOns.charity.linkText')}
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Visual -->
+        <div class="border-l-2 border-primary/20 pl-8 lg:mt-8" data-animate>
+          <span class="stat-number text-6xl text-primary lg:text-8xl">{t('overOns.charity.statValue')}</span>
+          <p class="mt-2 text-sm font-bold uppercase tracking-wider text-gray-medium">{t('overOns.charity.statLabel')}</p>
+          <div class="mt-8 h-px w-full bg-border"></div>
+          <p class="mt-6 text-xl font-black italic text-dark/70">{t('overOns.charity.tagline')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Details -->
+  <section class="bg-light py-20 lg:py-28">
+    <div class="border-t border-border"></div>
+    <div class="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl" data-animate>
+        <h2 class="mb-12 text-center text-3xl font-black tracking-tight text-dark sm:text-4xl">
+          {t('overOns.companyDetails.heading')}
+        </h2>
+
+        <div class="border border-border bg-white">
+          <dl class="divide-y divide-border">
+            {companyFields.map((field) => (
+              <div class="grid grid-cols-1 gap-1 px-8 py-5 sm:grid-cols-3 sm:gap-4">
+                <dt class="spec-label flex items-center">{field.label}</dt>
+                <dd class="text-sm text-dark sm:col-span-2">
+                  {field.isPhone ? (
+                    <a href="tel:0765720030" class="text-secondary hover:text-secondary-light">{field.value}</a>
+                  ) : (
+                    field.value
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTA />
+</Layout>

@@ -7,6 +7,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://ecoparkbreda.nl',
   integrations: [sitemap()],
+  i18n: {
+    defaultLocale: 'nl',
+    locales: ['nl', 'en', 'de'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
   }
