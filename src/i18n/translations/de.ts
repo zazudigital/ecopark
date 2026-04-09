@@ -4,6 +4,10 @@ const de = {
     defaultDescription: 'Ecopark Breda B.V. — professioneller Abfallumschlag, gesichertes LKW-Parken und Logistikdienstleistungen auf einem 2,4 Hektar grossen, vollstaendig befestigten Gelaende in Breda. VIHB-zertifiziert. Tel. +31 76 572 0030.',
   },
 
+  a11y: {
+    skipToContent: 'Zum Inhalt springen',
+  },
+
   nav: {
     home: 'Startseite',
     diensten: 'Dienstleistungen',
@@ -59,10 +63,17 @@ const de = {
     defaultSubtitle: 'Nehmen Sie Kontakt auf und wir bewerten Ihre Situation gemeinsam. Keine Standardloesungen, sondern massgeschneiderter Service. Partnerschaftliche Zusammenarbeit ist unsere Arbeitsweise — fuer die Gemeinde Breda, die Gemeinde Oosterhout und die Wirtschaft.',
     ctaPrimary: 'Angebot anfordern',
     ctaSecondary: 'Direkt anrufen',
+    badge: 'VIHB-zertifiziert · Breda',
   },
 
   serviceCard: {
     moreInfo: 'Weitere Informationen',
+  },
+
+  certBar: {
+    vihb: 'Zertifiziert',
+    iso: '14001',
+    security: 'Gesichert',
   },
 
   home: {
@@ -354,6 +365,7 @@ const de = {
       messageLabel: 'Nachricht *',
       messagePlaceholder: 'Beschreiben Sie Ihre Situation, gewuenschte Dienstleistung, geschaetzte Mengen oder stellen Sie Ihre Frage...',
       responsePromise: 'Wir antworten innerhalb von 24 Stunden an Werktagen',
+      submitting: 'Senden...',
       submitButton: 'Nachricht senden',
       successTitle: 'Vielen Dank fuer Ihre Nachricht!',
       successMessage: 'Wir setzen uns innerhalb eines Werktages mit Ihnen in Verbindung, um Ihre Anfrage zu besprechen.',

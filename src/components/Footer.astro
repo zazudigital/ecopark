@@ -17,7 +17,7 @@ const navLinks = [
 
 <footer role="contentinfo">
   <!-- Main Footer -->
-  <div class="bg-secondary text-white">
+  <div class="bg-secondary text-white" style="clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 100%);">
     <div class="relative mx-auto max-w-7xl overflow-hidden px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
       <!-- ECOPARK watermark -->
       <div class="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none" aria-hidden="true">
@@ -112,6 +112,11 @@ const navLinks = [
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Animated scan line -->
+  <div class="relative h-px bg-secondary-dark overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary-light to-transparent animate-scan-line" aria-hidden="true"></div>
   </div>
 
   <!-- Bottom Bar — Darker green -->

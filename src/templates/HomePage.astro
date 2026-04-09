@@ -52,8 +52,24 @@ const benefits = t('home.future.benefits') as Array<string>;
     showStats={true}
   />
 
-  <!-- Section divider -->
-  <hr class="section-hr" />
+  <!-- Certification Bar -->
+  <div class="bg-dark py-6" data-animate="fade-up">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-8 lg:gap-12 text-white/80 text-base font-bold">
+        <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">VIHB</span> {t('certBar.vihb')}</span>
+        <span class="w-px h-4 bg-white/20" aria-hidden="true"></span>
+        <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">ISO</span> {t('certBar.iso')}</span>
+        <span class="w-px h-4 bg-white/20" aria-hidden="true"></span>
+        <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">24/7</span> {t('certBar.security')}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section divider with green accent -->
+  <div class="relative">
+    <hr class="section-hr" />
+    <div class="absolute left-0 top-0 h-0.5 w-16 bg-secondary"></div>
+  </div>
 
   <!-- Services Section — Alternating full-width rows -->
   <section class="bg-white py-20 lg:py-28" id="diensten" aria-labelledby="services-heading">
@@ -69,7 +85,7 @@ const benefits = t('home.future.benefits') as Array<string>;
       </div>
 
       <div class="mb-12" data-animate="fade-up">
-        <img src="/images/trucks.jpg" alt={t('home.services.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover object-center rounded-sm" style="aspect-ratio: 800/600;" />
+        <img src="/images/trucks.jpg" alt={t('home.services.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover object-center" style="aspect-ratio: 800/600;" />
       </div>
 
       <div data-animate-stagger>
@@ -86,11 +102,14 @@ const benefits = t('home.future.benefits') as Array<string>;
     </div>
   </section>
 
-  <!-- Section divider -->
-  <hr class="section-hr" />
+  <!-- Section divider with green accent -->
+  <div class="relative">
+    <hr class="section-hr" />
+    <div class="absolute left-0 top-0 h-0.5 w-16 bg-secondary"></div>
+  </div>
 
   <!-- Facility Section — Spec sheet style -->
-  <section class="bg-light py-24 lg:py-32" aria-labelledby="facility-heading">
+  <section class="bg-light tech-grid-bg py-24 lg:py-32" aria-labelledby="facility-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl lg:mb-16" data-animate="fade-up">
         <p class="spec-label mb-3">{t('home.facility.label')}</p>
@@ -104,11 +123,11 @@ const benefits = t('home.future.benefits') as Array<string>;
       </div>
 
       <div class="mb-12" data-animate="fade-up">
-        <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover object-center rounded-sm" style="aspect-ratio: 800/600;" />
+        <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover object-center" style="aspect-ratio: 800/600;" />
       </div>
 
       <div class="border border-border" data-animate="fade-up">
-        <div class="spec-grid grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3" data-animate-stagger>
+        <div class="spec-grid grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3" data-animate-stagger="scale">
           {specs.map((spec) => (
             <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200 min-w-0">
               <span class="spec-label text-xs">{spec.label}</span>
@@ -128,7 +147,7 @@ const benefits = t('home.future.benefits') as Array<string>;
     <div class="border-t border-border"></div>
     <div class="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-20">
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-        <div data-animate="fade-up">
+        <div data-animate="blur-in">
           <span class="spec-label inline-block border border-secondary bg-secondary/5 px-3 py-1 mb-6 text-secondary">{t('home.future.badge')}</span>
           <h2 id="future-heading" class="text-3xl font-black text-dark text-balance sm:text-4xl lg:text-5xl">
             {t('home.future.heading')}
@@ -147,7 +166,7 @@ const benefits = t('home.future.benefits') as Array<string>;
               </li>
             ))}
           </ul>
-          <a href={localePath(locale, '/contact/')} class="mt-10 inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md hover:-translate-y-px active:translate-y-0">
+          <a href={localePath(locale, '/contact/')} class="btn mt-10 inline-flex items-center gap-2 rounded-none border-2 border-secondary bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md">
             {t('home.future.ctaButton')}
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </a>
@@ -156,8 +175,11 @@ const benefits = t('home.future.benefits') as Array<string>;
     </div>
   </section>
 
-  <!-- Section divider -->
-  <hr class="section-hr" />
+  <!-- Section divider with green accent -->
+  <div class="relative">
+    <hr class="section-hr" />
+    <div class="absolute left-0 top-0 h-0.5 w-16 bg-secondary"></div>
+  </div>
 
   <!-- CTA Section -->
   <CTA />

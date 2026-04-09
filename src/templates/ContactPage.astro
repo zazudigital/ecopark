@@ -140,6 +140,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
               <button
                 type="submit"
                 id="submit-btn"
+                data-loading-text={t('contact.form.submitting')}
                 class="inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md hover:-translate-y-px active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
               >
                 <span id="submit-text">{t('contact.form.submitButton')}</span>
@@ -331,7 +332,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
       // Show loading state
       submitBtn.disabled = true;
       submitBtn.setAttribute('aria-busy', 'true');
-      if (submitText) submitText.textContent = 'Verzenden...';
+      if (submitText) submitText.textContent = submitBtn.dataset.loadingText || 'Verzenden...';
       if (submitIcon) submitIcon.classList.add('hidden');
       if (submitSpinner) submitSpinner.classList.remove('hidden');
 

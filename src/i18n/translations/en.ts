@@ -4,6 +4,10 @@ const en = {
     defaultDescription: 'Ecopark Breda B.V. — professional waste transshipment, secure truck parking and logistics services on a 2.4-hectare fully paved site in Breda. VIHB certified. Call +31 76 572 0030.',
   },
 
+  a11y: {
+    skipToContent: 'Skip to content',
+  },
+
   nav: {
     home: 'Home',
     diensten: 'Services',
@@ -59,10 +63,17 @@ const en = {
     defaultSubtitle: 'Get in touch and we will assess your situation together. No standard solutions, only tailored service. Working closely with each client is how we operate — for the Municipality of Breda, Municipality of Oosterhout and the business sector.',
     ctaPrimary: 'Request a Quote',
     ctaSecondary: 'Call directly',
+    badge: 'VIHB Certified · Breda',
   },
 
   serviceCard: {
     moreInfo: 'More information',
+  },
+
+  certBar: {
+    vihb: 'Certified',
+    iso: '14001',
+    security: 'Secured',
   },
 
   home: {
@@ -354,6 +365,7 @@ const en = {
       messageLabel: 'Message *',
       messagePlaceholder: 'Describe your situation, desired service, estimated volumes or ask your question...',
       responsePromise: 'We respond within 24 hours on business days',
+      submitting: 'Sending...',
       submitButton: 'Send Message',
       successTitle: 'Thank you for your message!',
       successMessage: 'We will contact you within one business day to discuss your enquiry.',

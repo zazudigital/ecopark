@@ -41,7 +41,7 @@ const companyFields = t('overOns.companyDetails.fields') as Array<{ label: strin
 
         <!-- Image and quote block -->
         <div class="space-y-8 lg:mt-16" data-animate="fade-left">
-          <img src="/images/trucks.jpg" alt={t('overOns.philosophy.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover object-center rounded-sm" style="aspect-ratio: 800/600;" />
+          <img src="/images/trucks.jpg" alt={t('overOns.philosophy.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover object-center" style="aspect-ratio: 800/600;" />
           <div class="border-l-2 border-primary pl-8">
             <blockquote class="text-3xl font-black italic text-dark text-balance lg:text-4xl">
               {t('overOns.philosophy.quote')}
@@ -135,7 +135,7 @@ const companyFields = t('overOns.companyDetails.fields') as Array<{ label: strin
         <div class="border border-border bg-white">
           <dl class="divide-y divide-border">
             {companyFields.map((field) => (
-              <div class="grid grid-cols-1 gap-1 px-6 py-5 sm:grid-cols-3 sm:gap-4 sm:px-8 min-w-0">
+              <div class="spec-row grid grid-cols-1 gap-1 px-6 py-5 sm:grid-cols-3 sm:gap-4 sm:px-8 min-w-0">
                 <dt class="spec-label flex items-center">{field.label}</dt>
                 <dd class="text-base text-dark sm:col-span-2 break-words">
                   {field.isPhone ? (

@@ -21,6 +21,43 @@
   --font-family-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
+/* ══════════════════════════════════════════════════════
+   ECOPARK VISUAL IDENTITY — Data-Driven Industrial Tech
+   Angular shapes, blueprint grids, technical precision
+   ══════════════════════════════════════════════════════ */
+
+/* Angular design system — NO rounded corners for Ecopark */
+.btn, a[class*="bg-secondary"], a[class*="border-secondary"], button[type="submit"] {
+  border-radius: 0 !important;
+}
+
+/* Tech dot-grid background pattern */
+.tech-grid-bg {
+  background-image: radial-gradient(circle, rgba(57, 181, 74, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Scanning line animation — unique to Ecopark */
+@keyframes scanLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-scan-line {
+  animation: scanLine 3s ease-in-out infinite;
+}
+
+/* Stat count-up interactive styling */
+.count-up {
+  display: inline-block;
+  transition: transform 200ms var(--ease-out-quart);
+}
+
+.count-up:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 20px rgba(57, 181, 74, 0.3);
+}
+
 /* ── Custom Easing Variables ── */
 :root {
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);

@@ -4,6 +4,10 @@ const nl = {
     defaultDescription: 'Ecopark Breda B.V. — professionele afvaloverslag, beveiligde vrachtwagenparkeerplaatsen en logistieke dienstverlening op 2.4 hectare verhard terrein in Breda. VIHB gecertificeerd. Bel 076 – 572 0030.',
   },
 
+  a11y: {
+    skipToContent: 'Ga naar inhoud',
+  },
+
   nav: {
     home: 'Home',
     diensten: 'Diensten',
@@ -59,10 +63,17 @@ const nl = {
     defaultSubtitle: 'Neem contact op en wij inventariseren samen uw situatie. Geen standaardoplossingen, maar maatwerk. Met de klant meedenken is hoe wij werken — voor Gemeente Breda, Gemeente Oosterhout en het bedrijfsleven.',
     ctaPrimary: 'Offerte aanvragen',
     ctaSecondary: 'Bel direct',
+    badge: 'VIHB Gecertificeerd · Breda',
   },
 
   serviceCard: {
     moreInfo: 'Meer informatie',
+  },
+
+  certBar: {
+    vihb: 'Gecertificeerd',
+    iso: '14001',
+    security: 'Beveiligd',
   },
 
   home: {
@@ -354,6 +365,7 @@ const nl = {
       messageLabel: 'Bericht *',
       messagePlaceholder: 'Beschrijf uw situatie, gewenste dienst, geschatte volumes of stel uw vraag...',
       responsePromise: 'Wij reageren binnen 24 uur op werkdagen',
+      submitting: 'Verzenden...',
       submitButton: 'Verstuur bericht',
       successTitle: 'Bedankt voor uw bericht!',
       successMessage: 'Wij nemen binnen een werkdag contact met u op om uw aanvraag te bespreken.',
