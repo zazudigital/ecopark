@@ -74,7 +74,7 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
                   {service.features.map((feature) => (
                     <li class="flex items-start gap-3 min-w-0">
                       <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary" aria-hidden="true"></span>
-                      <span class="text-base font-medium text-gray-medium">{feature}</span>
+                      <span class="text-base font-bold text-gray-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -92,9 +92,8 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
   </div>
 
   <!-- VIHB Section -->
-  <section class="bg-light py-20 lg:py-28" aria-labelledby="vihb-heading">
-    <div class="border-t border-border"></div>
-    <div class="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-20">
+  <section class="bg-light tech-grid-bg py-20 lg:py-28" aria-labelledby="vihb-heading">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center" data-animate="fade-up">
         <p class="spec-label mb-4">{t('diensten.vihb.label')}</p>
         <h2 id="vihb-heading" class="text-3xl font-black tracking-tight text-dark text-balance sm:text-4xl">
@@ -106,7 +105,7 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
         </p>
         <div class="mt-12 grid gap-px bg-border sm:grid-cols-4" data-animate-stagger>
           {vihbLetters.map((item) => (
-            <div class="bg-white p-6 min-w-0">
+            <div class="vihb-letter bg-white p-6 min-w-0 cursor-default">
               <p class="text-2xl font-black text-primary">{item.letter}</p>
               <p class="mt-1 text-base font-bold text-gray-medium break-words">{item.label}</p>
             </div>

@@ -67,7 +67,7 @@ const nl = {
   },
 
   serviceCard: {
-    moreInfo: 'Meer informatie',
+    moreInfo: 'Bekijk deze dienst',
   },
 
   certBar: {
@@ -366,7 +366,7 @@ const nl = {
       messagePlaceholder: 'Beschrijf uw situatie, gewenste dienst, geschatte volumes of stel uw vraag...',
       responsePromise: 'Wij reageren binnen 24 uur op werkdagen',
       submitting: 'Verzenden...',
-      submitButton: 'Verstuur bericht',
+      submitButton: 'Verstuur uw bericht',
       successTitle: 'Bedankt voor uw bericht!',
       successMessage: 'Wij nemen binnen een werkdag contact met u op om uw aanvraag te bespreken.',
     },
@@ -409,13 +409,13 @@ const nl = {
     },
     heading: 'Pagina niet gevonden',
     description: 'De pagina die u zoekt bestaat niet of is verplaatst. Controleer het webadres of keer terug naar de homepage.',
-    backHome: 'Terug naar home',
-    backLabel: 'Ga terug',
+    backHome: 'Terug naar de homepage',
+    backLabel: 'Vorige pagina',
   },
 
   formErrors: {
-    required: 'Dit veld is verplicht',
-    invalidEmail: 'Voer een geldig e-mailadres in',
+    required: 'Vul dit veld in om verder te gaan',
+    invalidEmail: 'Vul een geldig e-mailadres in (bijv. naam@bedrijf.nl)',
     requiredIndicator: 'Verplicht',
   },
 } as const;

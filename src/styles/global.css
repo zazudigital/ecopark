@@ -202,7 +202,7 @@ html {
 body {
   font-size: 1.0625rem;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 600;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -243,14 +243,14 @@ h1, h2, h3, h4, h5, h6 {
 .text-body {
   font-size: 1.0625rem;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 600;
   text-wrap: pretty;
 }
 
 .text-small {
   font-size: 1rem;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Industrial stat numbers */
@@ -374,9 +374,14 @@ textarea[aria-invalid="true"]:focus-visible {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-primary);
+}
+
+/* ── Uppercase labels — ensure proper spacing ── */
+.tracking-widest {
+  letter-spacing: 0.12em;
 }
 
 /* Hero bottom gradient fade — disabled, stats sit at bottom */
@@ -606,6 +611,11 @@ textarea[aria-invalid="true"]:focus-visible {
 
 .spec-grid > *:nth-child(odd) {
   background-color: #ffffff;
+}
+
+/* First spec row green top accent */
+.spec-grid > *:first-child {
+  border-top: 2px solid var(--color-secondary);
 }
 
 
@@ -852,6 +862,117 @@ a[class*="inline-flex"]:hover svg:last-child {
   animation: accent-grow 0.5s var(--ease-out-quint) 0.3s both;
 }
 
+
+/* ══════════════════════════════════════════════════════
+   HARDEN — Resilience & Edge Cases
+   ══════════════════════════════════════════════════════ */
+
+/* Prevent text overflow in constrained containers */
+.line-clamp-3,
+.line-clamp-4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Minimum section heights to prevent visual collapse */
+section {
+  min-height: 12rem;
+}
+
+/* Form error shake animation for invalid fields */
+@keyframes form-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  animation: form-shake 0.4s var(--ease-out-quart);
+}
+
+/* ══════════════════════════════════════════════════════
+   COLORIZE — Strategic color accents between sections
+   ══════════════════════════════════════════════════════ */
+
+/* Subtle blue tint for alternating rhythm on light sections */
+.bg-light-blue {
+  background-color: #f0f2fa;
+}
+
+/* VIHB letter cards — hover accent */
+.vihb-letter {
+  transition: background-color 200ms var(--ease-out-quart), transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart);
+}
+
+.vihb-letter:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(40, 56, 145, 0.15);
+}
+
+.vihb-letter:hover p:first-child {
+  color: white !important;
+}
+
+.vihb-letter:hover p:last-child {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* ── Form Success — Satisfying Checkmark Bounce ── */
+@keyframes success-bounce {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+#form-success:not(.hidden) {
+  animation: success-bounce 0.5s var(--ease-out-quint) both;
+}
+
+#form-success:not(.hidden) svg {
+  animation: success-bounce 0.5s var(--ease-out-quint) 0.15s both;
+}
+
+/* ══════════════════════════════════════════════════════
+   DELIGHT — 404 page personality
+   ══════════════════════════════════════════════════════ */
+
+/* 404 number — glitch effect on hover */
+@keyframes glitch-404 {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-2px, 2px); }
+  40%  { transform: translate(-2px, -2px); }
+  60%  { transform: translate(2px, 2px); }
+  80%  { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-hover {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+.glitch-hover:hover {
+  animation: glitch-404 0.3s var(--ease-out-quart);
+}
+
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  color: var(--color-secondary);
+  clip-path: inset(0 0 0 0);
+  transition: opacity 200ms;
+}
+
+.glitch-hover:hover::after {
+  opacity: 0.4;
+  transform: translate(3px, -3px);
+}
 
 /* ══════════════════════════════════════════════════════
    PERFORMANCE — content-visibility for below-fold sections

@@ -67,7 +67,7 @@ const en = {
   },
 
   serviceCard: {
-    moreInfo: 'More information',
+    moreInfo: 'Explore this service',
   },
 
   certBar: {
@@ -366,7 +366,7 @@ const en = {
       messagePlaceholder: 'Describe your situation, desired service, estimated volumes or ask your question...',
       responsePromise: 'We respond within 24 hours on business days',
       submitting: 'Sending...',
-      submitButton: 'Send Message',
+      submitButton: 'Send your message',
       successTitle: 'Thank you for your message!',
       successMessage: 'We will contact you within one business day to discuss your enquiry.',
     },
@@ -409,13 +409,13 @@ const en = {
     },
     heading: 'Page Not Found',
     description: 'The page you are looking for does not exist or has been moved. Please check the URL or return to the homepage.',
-    backHome: 'Back to home',
-    backLabel: 'Go back',
+    backHome: 'Back to the homepage',
+    backLabel: 'Previous page',
   },
 
   formErrors: {
-    required: 'This field is required',
-    invalidEmail: 'Please enter a valid email address',
+    required: 'Please fill in this field to continue',
+    invalidEmail: 'Please enter a valid email address (e.g. name@company.com)',
     requiredIndicator: 'Required',
   },
 } as const;

@@ -51,7 +51,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
           </div>
 
           <form class="mt-8 space-y-6" action="#" method="POST" id="contact-form" novalidate>
-            <p class="text-sm font-medium text-gray-medium"><span class="text-red-600 font-bold" aria-hidden="true">*</span> = {t('formErrors.requiredIndicator')}</p>
+            <p class="text-sm font-bold text-gray-medium"><span class="text-red-600 font-bold" aria-hidden="true">*</span> = {t('formErrors.requiredIndicator')}</p>
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
                 <label for="naam" class="block text-base font-bold text-dark">{t('contact.form.nameLabel')} <span class="text-red-600" aria-hidden="true">*</span></label>
@@ -290,8 +290,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
 
   <!-- Map Section -->
   <section class="bg-light py-24 lg:py-32" aria-labelledby="map-heading">
-    <div class="border-t border-border"></div>
-    <div class="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto mb-12 max-w-2xl text-center" data-animate="fade-up">
         <p class="spec-label mb-3">{t('contact.map.label')}</p>
         <h2 id="map-heading" class="text-3xl font-black tracking-tight text-dark text-balance sm:text-4xl">
@@ -303,10 +302,10 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
       </div>
 
       <!-- Map Embed -->
-      <div class="overflow-hidden border border-border" style="aspect-ratio: 16/9;">
+      <div class="overflow-hidden border border-border" style="aspect-ratio: 16/9; contain: layout;">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2489.5!2d4.7738!3d51.5783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c69f5a8b5f0001%3A0x0!2sNieuwe+Bredase+Baan+30%2C+4825+BP+Breda!5e0!3m2!1snl!2snl!4v1"
-          width="100%"
+          width="800"
           height="450"
           style="border:0;"
           allowfullscreen=""
@@ -322,7 +321,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
         {directions.map((direction) => (
           <div class="bg-white p-6 min-w-0">
             <span class="spec-label">{direction.label}</span>
-            <p class="mt-2 text-base font-medium text-gray-medium">{direction.description}</p>
+            <p class="mt-2 text-base font-bold text-gray-medium">{direction.description}</p>
           </div>
         ))}
       </div>

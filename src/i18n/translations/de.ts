@@ -67,7 +67,7 @@ const de = {
   },
 
   serviceCard: {
-    moreInfo: 'Weitere Informationen',
+    moreInfo: 'Dienstleistung ansehen',
   },
 
   certBar: {
@@ -366,7 +366,7 @@ const de = {
       messagePlaceholder: 'Beschreiben Sie Ihre Situation, gewuenschte Dienstleistung, geschaetzte Mengen oder stellen Sie Ihre Frage...',
       responsePromise: 'Wir antworten innerhalb von 24 Stunden an Werktagen',
       submitting: 'Senden...',
-      submitButton: 'Nachricht senden',
+      submitButton: 'Ihre Nachricht senden',
       successTitle: 'Vielen Dank fuer Ihre Nachricht!',
       successMessage: 'Wir setzen uns innerhalb eines Werktages mit Ihnen in Verbindung, um Ihre Anfrage zu besprechen.',
     },
@@ -410,12 +410,12 @@ const de = {
     heading: 'Seite nicht gefunden',
     description: 'Die Seite, die Sie suchen, existiert nicht oder wurde verschoben. Bitte ueberpruefen Sie die URL oder kehren Sie zur Startseite zurueck.',
     backHome: 'Zurueck zur Startseite',
-    backLabel: 'Zurueck',
+    backLabel: 'Vorherige Seite',
   },
 
   formErrors: {
-    required: 'Dieses Feld ist erforderlich',
-    invalidEmail: 'Bitte geben Sie eine gueltige E-Mail-Adresse ein',
+    required: 'Bitte fuellen Sie dieses Feld aus, um fortzufahren',
+    invalidEmail: 'Bitte geben Sie eine gueltige E-Mail-Adresse ein (z.B. name@firma.de)',
     requiredIndicator: 'Erforderlich',
   },
 } as const;

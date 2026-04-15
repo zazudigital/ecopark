@@ -154,8 +154,7 @@ const benefits = t('home.future.benefits') as Array<string>;
 
   <!-- Future Plans Section -->
   <section class="bg-white py-20 lg:py-28" aria-labelledby="future-heading">
-    <div class="border-t border-border"></div>
-    <div class="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div data-animate="blur-in">
           <span class="spec-label inline-block border border-secondary bg-secondary/5 px-3 py-1 mb-6 text-secondary-dark">{t('home.future.badge')}</span>
@@ -172,7 +171,7 @@ const benefits = t('home.future.benefits') as Array<string>;
             {benefits.map((benefit) => (
               <li class="flex items-start gap-3 min-w-0">
                 <span class="mt-1.5 block h-1.5 w-1.5 shrink-0 bg-secondary" aria-hidden="true"></span>
-                <span class="text-base font-medium text-dark/80">{benefit}</span>
+                <span class="text-base font-bold text-dark/80">{benefit}</span>
               </li>
             ))}
           </ul>
