@@ -85,10 +85,19 @@ const en = {
       title: 'Going above and beyond',
       subtitle: 'Ecopark Breda is the professional transshipment and storage facility where over 50 trucks deliver organic waste, household waste and bulky waste daily. On our 2.4-hectare fully paved site, we provide VIHB-registered transshipment with an annual capacity of 180,000 tonnes — serving the Municipality of Breda, Municipality of Oosterhout and the business sector.',
     },
+    quickSummary: {
+      item1Label: 'What we do',
+      item1: 'Professional waste transshipment for municipalities and businesses',
+      item2Label: 'Where',
+      item2: '2.4-hectare paved site in Breda, near A16/A59/A27 motorways',
+      item3Label: 'Why us',
+      item3: 'VIHB-certified, 180,000 tonnes annual capacity, 24/7 secured',
+    },
     services: {
       label: 'Our Core Activities',
       heading: 'A transshipment station with ambitions',
-      description: 'Waste transshipment can be faster. From organic waste, household waste and bulky waste to virtually all other common waste streams — we handle the complete transshipment for the Municipality of Breda, Municipality of Oosterhout and the business sector. Waste is delivered weekly by more than fifty collection vehicles. 15 larger trucks distribute the waste to processing facilities.',
+      description: 'From organic waste and household waste to construction and demolition waste — we handle the complete transshipment for the Municipality of Breda, Municipality of Oosterhout and the business sector.',
+      viewAll: 'View all services',
       trucksAlt: 'Trucks at the Ecopark Breda site',
       items: [
         {

@@ -15,26 +15,28 @@ const {
 } = Astro.props;
 ---
 
-<section class="bg-primary py-16 lg:py-20 text-white" style="color: white;">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<section class="bg-primary py-20 lg:py-28 text-white relative overflow-hidden" style="color: white;">
+  <!-- Subtle diagonal stripe pattern -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.2) 20px, rgba(255,255,255,0.2) 21px);" aria-hidden="true"></div>
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-2xl text-center" data-animate="blur-in">
       <p class="spec-label mb-4 text-white/60" style="color: rgba(255,255,255,0.6);">{t('cta.badge')}</p>
-      <h2 class="text-3xl font-black tracking-tight text-balance sm:text-4xl lg:text-5xl" style="color: white;">
+      <h2 class="text-h1 font-black tracking-tight text-balance" style="color: white;">
         {title}
       </h2>
-      <p class="mt-6 text-lg leading-relaxed text-white/85 font-bold max-w-prose mx-auto">
+      <p class="mt-6 text-lg leading-relaxed text-white/80 font-bold max-w-prose mx-auto">
         {subtitle}
       </p>
 
-      <!-- Phone number -->
-      <a href="tel:+31765720030" class="mt-8 block font-heading text-2xl font-bold text-secondary sm:text-3xl transition-colors hover:text-secondary-light">
+      <!-- Phone number — more prominent -->
+      <a href="tel:+31765720030" class="mt-10 inline-block font-heading text-3xl font-black text-secondary sm:text-4xl transition-colors hover:text-secondary-light">
         076 – 572 0030
       </a>
 
       <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <a
           href={localePath(locale, '/contact/')}
-          class="btn inline-flex items-center gap-2 rounded-none border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-lg"
+          class="btn inline-flex items-center gap-2 bg-secondary px-10 py-5 text-lg font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:shadow-lg"
         >
           {t('cta.ctaPrimary')}
           <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -43,7 +45,7 @@ const {
         </a>
         <a
           href="tel:+31765720030"
-          class="btn inline-flex items-center gap-2 rounded-none border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:border-white/70 hover:bg-white/10"
+          class="btn inline-flex items-center gap-2 border-2 border-white/40 px-10 py-5 text-lg font-bold text-white transition-all duration-200 hover:border-white/70 hover:bg-white/10"
         >
           <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />

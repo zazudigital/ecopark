@@ -146,15 +146,9 @@
   animation: scanLine 3s ease-in-out infinite;
 }
 
-/* Stat count-up interactive styling */
-.count-up {
+/* Stat counter inline-block for animations */
+.stat-counter {
   display: inline-block;
-  transition: transform 200ms var(--ease-out-quart);
-}
-
-.count-up:hover {
-  transform: scale(1.05);
-  text-shadow: 0 0 20px rgba(57, 181, 74, 0.3);
 }
 
 /* ── Custom Easing Variables ── */
@@ -687,47 +681,7 @@ footer a[aria-label]:hover {
    DELIGHT TOUCHES
    ══════════════════════════════════════════════════════ */
 
-/* ── Hero Title — Subtle Gradient Shimmer ── */
-@keyframes hero-shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.hero-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 40%,
-    rgba(57, 181, 74, 0.8) 50%,
-    rgba(255, 255, 255, 1) 60%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: hero-shimmer 6s var(--ease-out-quint) 1.5s 1 forwards;
-  background-position: -200% center;
-}
-
-/* ── Stats — Subtle Glow Pulse ── */
-@keyframes stat-glow {
-  0%, 100% {
-    text-shadow: 0 0 0 transparent;
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(57, 181, 74, 0.15);
-  }
-}
-
-.stat-glow {
-  animation: stat-glow 4s ease-in-out infinite;
-  animation-delay: 2s;
-}
+/* (Removed hero-shimmer and stat-glow — too distracting for industrial site) */
 
 /* ── CTA Arrow Float ── */
 @keyframes arrow-float {
@@ -975,6 +929,31 @@ textarea[aria-invalid="true"] {
 }
 
 /* ══════════════════════════════════════════════════════
+   OVERDRIVE — Scroll-driven section reveal (view timeline)
+   ══════════════════════════════════════════════════════ */
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal-section {
+    animation: sectionReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 25%;
+  }
+
+  @keyframes sectionReveal {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════
    PERFORMANCE — content-visibility for below-fold sections
    ══════════════════════════════════════════════════════ */
 
@@ -1029,12 +1008,14 @@ section:not(:first-of-type) {
     will-change: auto;
   }
 
-  .hero-shimmer {
-    background: none;
-    -webkit-text-fill-color: inherit;
+  .scroll-indicator {
+    animation: none;
   }
 
-  .scroll-indicator {
+  .scroll-reveal-section {
+    opacity: 1;
+    transform: none;
+    filter: none;
     animation: none;
   }
 }

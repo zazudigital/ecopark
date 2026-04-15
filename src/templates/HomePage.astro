@@ -62,40 +62,37 @@ const benefits = t('home.future.benefits') as Array<string>;
     showStats={true}
   />
 
-  <!-- Certification Bar -->
-  <div class="bg-dark py-6" data-animate="fade-up">
+  <!-- Quick value summary — what we do in 3 seconds -->
+  <section class="bg-white py-12 lg:py-16" aria-label="Quick overview">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 lg:gap-12 text-white/80 text-base font-bold">
-        <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">VIHB</span> {t('certBar.vihb')}</span>
-        <span class="hidden w-px h-4 bg-white/20 sm:block" aria-hidden="true"></span>
-        <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">ISO</span> {t('certBar.iso')}</span>
-        <span class="hidden w-px h-4 bg-white/20 sm:block" aria-hidden="true"></span>
-        <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">24/7</span> {t('certBar.security')}</span>
+      <div class="grid gap-px bg-border sm:grid-cols-3 border border-border" data-animate-stagger>
+        <div class="bg-white p-6 lg:p-8">
+          <span class="spec-label text-secondary-dark">{t('home.quickSummary.item1Label')}</span>
+          <p class="mt-2 text-lg font-bold text-dark">{t('home.quickSummary.item1')}</p>
+        </div>
+        <div class="bg-white p-6 lg:p-8">
+          <span class="spec-label text-secondary-dark">{t('home.quickSummary.item2Label')}</span>
+          <p class="mt-2 text-lg font-bold text-dark">{t('home.quickSummary.item2')}</p>
+        </div>
+        <div class="bg-white p-6 lg:p-8">
+          <span class="spec-label text-secondary-dark">{t('home.quickSummary.item3Label')}</span>
+          <p class="mt-2 text-lg font-bold text-dark">{t('home.quickSummary.item3')}</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Section divider with green accent -->
-  <div class="relative">
-    <hr class="section-hr" />
-    <div class="absolute left-0 top-0 h-0.5 w-16 bg-secondary"></div>
-  </div>
-
-  <!-- Services Section — Alternating full-width rows -->
-  <section class="bg-white py-20 lg:py-28" id="diensten" aria-labelledby="services-heading">
+  <!-- Services Section — Industrial grid -->
+  <section class="bg-light py-20 lg:py-28" id="diensten" aria-labelledby="services-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl lg:mb-16" data-animate="fade-up">
         <p class="spec-label mb-3">{t('home.services.label')}</p>
-        <h2 id="services-heading" class="text-3xl font-black tracking-tight text-dark text-balance sm:text-4xl">
+        <h2 id="services-heading" class="text-h1 font-black tracking-tight text-dark text-balance">
           {t('home.services.heading')}
         </h2>
         <p class="mt-4 text-lg text-gray-medium max-w-prose">
           {t('home.services.description')}
         </p>
-      </div>
-
-      <div class="mb-12" data-animate="fade-up">
-        <img src="/images/trucks.jpg" alt={t('home.services.trucksAlt')} loading="lazy" decoding="async" width="800" height="600" class="w-full h-64 object-cover object-center" style="aspect-ratio: 800/600;" />
       </div>
 
       <div data-animate-stagger>
@@ -109,48 +106,50 @@ const benefits = t('home.future.benefits') as Array<string>;
           </a>
         ))}
       </div>
+
+      <div class="mt-12 text-center" data-animate="fade-up">
+        <a href={localePath(locale, '/diensten/')} class="btn inline-flex items-center gap-2 border-2 border-primary bg-primary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-primary-dark hover:border-primary-dark hover:shadow-md">
+          {t('home.services.viewAll')}
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Section divider with green accent -->
-  <div class="relative">
-    <hr class="section-hr" />
-    <div class="absolute left-0 top-0 h-0.5 w-16 bg-secondary"></div>
-  </div>
-
-  <!-- Facility Section — Spec sheet style -->
-  <section class="bg-light tech-grid-bg py-24 lg:py-32" aria-labelledby="facility-heading">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-12 max-w-2xl lg:mb-16" data-animate="fade-up">
-        <p class="spec-label mb-3">{t('home.facility.label')}</p>
-        <h2 id="facility-heading" class="text-3xl font-black tracking-tight text-dark text-balance sm:text-4xl">
-          {t('home.facility.heading')}
-        </h2>
-        <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
-        <p class="mt-4 text-lg text-gray-medium max-w-prose">
-          {t('home.facility.description')}
-        </p>
-      </div>
-
-      <div class="mb-12" data-animate="fade-up">
-        <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" decoding="async" width="800" height="600" class="w-full h-56 object-cover object-center" style="aspect-ratio: 800/600;" />
-      </div>
-
-      <div class="border border-border" data-animate="fade-up">
-        <div class="spec-grid grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3" data-animate-stagger="scale">
-          {specs.map((spec) => (
-            <div class="spec-row bg-white p-8 border-l-0 transition-all duration-200 min-w-0">
-              <span class="spec-label text-xs">{spec.label}</span>
-              <p class="mt-2 text-base font-bold text-dark break-words">{spec.value}</p>
-            </div>
-          ))}
+  <!-- Facility Section — Technical blueprint aesthetic -->
+  <section class="bg-dark text-white py-24 lg:py-32 relative overflow-hidden" aria-labelledby="facility-heading">
+    <!-- Blueprint grid background -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(57,181,74,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(57,181,74,0.5) 1px, transparent 1px); background-size: 32px 32px;" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <!-- Left: heading + image -->
+        <div class="lg:col-span-5" data-animate="fade-up">
+          <p class="spec-label mb-3" style="color: rgba(57,181,74,0.8);">{t('home.facility.label')}</p>
+          <h2 id="facility-heading" class="text-h1 font-black tracking-tight text-white text-balance">
+            {t('home.facility.heading')}
+          </h2>
+          <div class="mt-4 h-0.5 w-24 bg-secondary"></div>
+          <p class="mt-6 text-lg text-white/70 font-bold max-w-prose">
+            {t('home.facility.description')}
+          </p>
+          <div class="mt-10">
+            <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" decoding="async" width="800" height="600" class="w-full h-56 object-cover object-center border border-white/10" style="aspect-ratio: 800/600;" />
+          </div>
+        </div>
+        <!-- Right: spec grid -->
+        <div class="lg:col-span-7" data-animate="fade-left">
+          <div class="grid gap-px bg-white/10 sm:grid-cols-2" data-animate-stagger="scale">
+            {specs.map((spec, idx) => (
+              <div class:list={["p-6 lg:p-8 min-w-0 transition-all duration-200 hover:bg-white/10", idx === 0 ? "bg-white/[0.07] border-l-2 border-secondary" : "bg-white/[0.04]"]}>
+                <span class="spec-label text-xs" style="color: rgba(57,181,74,0.7);">{spec.label}</span>
+                <p class="mt-2 text-base font-bold text-white/90 break-words">{spec.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Section divider -->
-  <hr class="section-hr" />
 
   <!-- Future Plans Section -->
   <section class="bg-white py-20 lg:py-28" aria-labelledby="future-heading">
@@ -158,7 +157,7 @@ const benefits = t('home.future.benefits') as Array<string>;
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div data-animate="blur-in">
           <span class="spec-label inline-block border border-secondary bg-secondary/5 px-3 py-1 mb-6 text-secondary-dark">{t('home.future.badge')}</span>
-          <h2 id="future-heading" class="text-3xl font-black text-dark text-balance sm:text-4xl lg:text-5xl">
+          <h2 id="future-heading" class="text-h1 font-black text-dark text-balance">
             {t('home.future.heading')}
           </h2>
           <div class="mt-4 h-0.5 w-16 bg-secondary"></div>
@@ -175,7 +174,7 @@ const benefits = t('home.future.benefits') as Array<string>;
               </li>
             ))}
           </ul>
-          <a href={localePath(locale, '/contact/')} class="btn mt-10 inline-flex items-center gap-2 rounded-none border-2 border-secondary bg-secondary px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md">
+          <a href={localePath(locale, '/contact/')} class="btn mt-10 inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-md">
             {t('home.future.ctaButton')}
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </a>
@@ -183,12 +182,6 @@ const benefits = t('home.future.benefits') as Array<string>;
       </div>
     </div>
   </section>
-
-  <!-- Section divider with green accent -->
-  <div class="relative">
-    <hr class="section-hr" />
-    <div class="absolute left-0 top-0 h-0.5 w-16 bg-secondary"></div>
-  </div>
 
   <!-- CTA Section -->
   <CTA />

@@ -51,6 +51,9 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage || '/images/og-default.svg', Astro.site)} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="author" content="Ecopark Breda B.V." />
+    <meta name="theme-color" content="#283891" />
     <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{fullTitle}</title>
@@ -143,17 +146,81 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
             parent.classList.add('img-hover-zoom');
           }
         });
+
+        // ── Scroll-driven section reveals (progressive enhancement) ──
+        if (CSS.supports('animation-timeline: view()')) {
+          document.querySelectorAll('section:not(:first-of-type)').forEach((section) => {
+            section.classList.add('scroll-reveal-section');
+          });
+        }
+      }
+
+      // ── Stat Counter Animation — counts up numbers on scroll ──
+      function initStatCounters() {
+        const counters = document.querySelectorAll('.stat-counter');
+        if (!counters.length) return;
+
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target as HTMLElement;
+              if (el.dataset.counted) return;
+              el.dataset.counted = 'true';
+
+              const target = parseFloat(el.dataset.target || '0');
+              const suffix = el.dataset.suffix || '';
+              const decimals = parseInt(el.dataset.decimals || '0', 10);
+              const duration = parseInt(el.dataset.duration || '1500', 10);
+              const start = performance.now();
+
+              function easeOutQuart(t: number): number {
+                return 1 - Math.pow(1 - t, 4);
+              }
+
+              function tick(now: number) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeOutQuart(progress);
+                const current = target * eased;
+
+                if (decimals > 0) {
+                  el.textContent = current.toFixed(decimals) + suffix;
+                } else {
+                  el.textContent = Math.round(current).toLocaleString('nl-NL') + suffix;
+                }
+
+                if (progress < 1) {
+                  requestAnimationFrame(tick);
+                }
+              }
+
+              requestAnimationFrame(tick);
+              counterObserver.unobserve(el);
+            });
+          },
+          { threshold: 0.3 }
+        );
+
+        counters.forEach((c) => counterObserver.observe(c));
       }
 
       // Run on initial load
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+        document.addEventListener('DOMContentLoaded', () => {
+          initScrollAnimations();
+          initStatCounters();
+        });
       } else {
         initScrollAnimations();
+        initStatCounters();
       }
 
       // Re-run after Astro view transitions (if used)
-      document.addEventListener('astro:after-swap', initScrollAnimations);
+      document.addEventListener('astro:after-swap', () => {
+        initScrollAnimations();
+        initStatCounters();
+      });
     </script>
   </body>
 </html>

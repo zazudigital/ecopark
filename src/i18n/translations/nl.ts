@@ -85,10 +85,19 @@ const nl = {
       title: 'Meer dan goed genoeg',
       subtitle: 'Ecopark Breda is het professionele op- en overslagpark waar dagelijks meer dan 50 vrachtwagens gft, huishoudelijk en grof afval aanleveren. Op ons 2,4 hectare grote, volledig bestraatte terrein verzorgen wij VIHB-geregistreerde overslag met een jaarcapaciteit van 180.000 ton — voor Gemeente Breda, Gemeente Oosterhout en het bedrijfsleven.',
     },
+    quickSummary: {
+      item1Label: 'Wat wij doen',
+      item1: 'Professionele afvaloverslag voor gemeenten en bedrijven',
+      item2Label: 'Waar',
+      item2: '2,4 hectare verhard terrein in Breda, vlakbij A16/A59/A27',
+      item3Label: 'Waarom wij',
+      item3: 'VIHB-gecertificeerd, 180.000 ton jaarcapaciteit, 24/7 beveiligd',
+    },
     services: {
       label: 'Onze kernactiviteiten',
       heading: 'Overslagstation met ambities',
-      description: 'Afwikkeling overslag kan sneller. Van gft, huishoudelijk afval en grof afval tot bijna alle overige voorkomende afvalstoffen — wij verzorgen de complete op- en overslag voor Gemeente Breda, Gemeente Oosterhout en het bedrijfsleven. Het afval wordt hier wekelijks met meer dan vijftig inzamelvoertuigen aangevoerd. 15 grotere vrachtwagens distribueren het afval naar de afvalcentrales.',
+      description: 'Van gft en huishoudelijk afval tot bouw- en sloopafval — wij verzorgen de complete op- en overslag voor Gemeente Breda, Gemeente Oosterhout en het bedrijfsleven.',
+      viewAll: 'Bekijk alle diensten',
       trucksAlt: 'Vrachtwagens op het Ecopark Breda terrein',
       items: [
         {

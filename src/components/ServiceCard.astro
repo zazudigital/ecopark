@@ -13,26 +13,25 @@ interface Props {
 const { number, title, description } = Astro.props;
 ---
 
-<div class="card-lift group border-b border-border py-10 first:border-t first:border-border transition-all duration-200 hover:bg-white/80 hover:border-b-secondary" data-animate="fade-up">
-  <div class="relative border-t-2 border-transparent transition-colors duration-200 group-hover:border-primary pt-6">
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-12 sm:gap-8 min-w-0">
-      <!-- Number -->
-      <div class="sm:col-span-2 lg:col-span-1">
-        <div class="inline-flex h-10 w-10 items-center justify-center bg-primary/5 transition-all duration-200 group-hover:bg-secondary group-hover:scale-105">
-          <span class="spec-label text-xl text-primary transition-colors duration-200 group-hover:text-white">{number}</span>
-        </div>
-      </div>
-      <!-- Content -->
-      <div class="sm:col-span-10 lg:col-span-11 min-w-0">
-        <h3 class="text-lg font-bold text-dark lg:text-xl text-balance break-words">{title}</h3>
-        <p class="mt-2 max-w-2xl text-base leading-relaxed text-gray-medium line-clamp-3">{description}</p>
-        <span class="mt-4 inline-flex items-center gap-1.5 text-base font-bold text-primary">
-          {t('serviceCard.moreInfo')}
-          <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </span>
-      </div>
+<div class="group border-b border-border py-8 first:border-t first:border-border transition-all duration-200" data-animate="fade-up">
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-12 sm:gap-6 items-baseline min-w-0">
+    <!-- Number -->
+    <div class="sm:col-span-1">
+      <span class="font-heading text-3xl font-black text-primary/20 transition-colors duration-200 group-hover:text-primary">{number}</span>
+    </div>
+    <!-- Content -->
+    <div class="sm:col-span-8 lg:col-span-7 min-w-0">
+      <h3 class="text-xl font-bold text-dark lg:text-2xl text-balance break-words transition-colors duration-200 group-hover:text-primary">{title}</h3>
+      <p class="mt-2 max-w-2xl text-base leading-relaxed text-gray-medium line-clamp-2">{description}</p>
+    </div>
+    <!-- Arrow -->
+    <div class="sm:col-span-3 lg:col-span-4 flex sm:justify-end items-center">
+      <span class="inline-flex items-center gap-1.5 text-base font-bold text-primary opacity-0 transition-all duration-200 group-hover:opacity-100 translate-x-0 group-hover:translate-x-0">
+        {t('serviceCard.moreInfo')}
+        <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </span>
     </div>
   </div>
 </div>

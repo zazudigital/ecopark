@@ -85,10 +85,19 @@ const de = {
       title: 'Mehr als gut genug',
       subtitle: 'Ecopark Breda ist die professionelle Umschlag- und Lageranlage, wo taeglich mehr als 50 LKW Bioabfall, Hausmuell und Sperrmuell anliefern. Auf unserem 2,4 Hektar grossen, vollstaendig befestigten Gelaende betreiben wir VIHB-registrierten Umschlag mit einer Jahreskapazitaet von 180.000 Tonnen — fuer die Gemeinde Breda, die Gemeinde Oosterhout und die Wirtschaft.',
     },
+    quickSummary: {
+      item1Label: 'Was wir tun',
+      item1: 'Professioneller Abfallumschlag fuer Gemeinden und Unternehmen',
+      item2Label: 'Wo',
+      item2: '2,4 Hektar befestigtes Gelaende in Breda, nahe A16/A59/A27',
+      item3Label: 'Warum wir',
+      item3: 'VIHB-zertifiziert, 180.000 Tonnen Jahreskapazitaet, 24/7 gesichert',
+    },
     services: {
       label: 'Unsere Kernaktivitaeten',
       heading: 'Eine Umschlagstation mit Ambitionen',
-      description: 'Abfallumschlag kann schneller. Von Bioabfall, Hausmuell und Sperrmuell bis hin zu nahezu allen weiteren gaengigen Abfallstroemen — wir uebernehmen den kompletten Umschlag fuer die Gemeinde Breda, die Gemeinde Oosterhout und die Wirtschaft. Der Abfall wird woechentlich mit mehr als fuenfzig Sammelfahrzeugen angeliefert. 15 groessere LKW verteilen den Abfall an die Verarbeitungsanlagen.',
+      description: 'Von Bioabfall und Hausmuell bis hin zu Bau- und Abbruchabfaellen — wir uebernehmen den kompletten Umschlag fuer die Gemeinde Breda, die Gemeinde Oosterhout und die Wirtschaft.',
+      viewAll: 'Alle Dienstleistungen ansehen',
       trucksAlt: 'LKW auf dem Ecopark Breda Gelaende',
       items: [
         {
