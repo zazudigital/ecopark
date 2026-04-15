@@ -101,6 +101,7 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label={t('header.menuOpen')}
+          data-label-close={t('header.menuClose')}
         >
           <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -176,6 +177,9 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
   const iconClose = document.getElementById('menu-icon-close');
 
   if (btn && menu && iconOpen && iconClose) {
+    const labelOpen = btn.getAttribute('aria-label') || '';
+    const labelClose = btn.dataset.labelClose || labelOpen;
+
     btn.addEventListener('click', () => {
       const isOpen = menu.style.maxHeight && menu.style.maxHeight !== '0px';
       if (isOpen) {
@@ -186,31 +190,51 @@ const pagePath = Astro.url.pathname.replace(/^\/(en|de)/, '') || '/';
       iconOpen.classList.toggle('hidden');
       iconClose.classList.toggle('hidden');
       btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.setAttribute('aria-label', isOpen ? labelOpen : labelClose);
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+        menu.style.maxHeight = '0px';
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', labelOpen);
+        btn.focus();
+      }
     });
   }
 
-  // Add shadow on scroll + hide top bar
+  // Add shadow on scroll + hide top bar (throttled for performance)
   const header = document.getElementById('site-header');
   const topBar = document.getElementById('top-bar');
   if (header) {
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        header.classList.add('shadow-sm');
-        header.style.borderBottomColor = '#dce3ef';
-        if (topBar) {
-          topBar.style.maxHeight = '0';
-          topBar.style.paddingTop = '0';
-          topBar.style.paddingBottom = '0';
-        }
-      } else {
-        header.classList.remove('shadow-sm');
-        header.style.borderBottomColor = 'transparent';
-        if (topBar) {
-          topBar.style.maxHeight = '';
-          topBar.style.paddingTop = '';
-          topBar.style.paddingBottom = '';
-        }
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (window.scrollY > 10) {
+            header.classList.add('shadow-sm');
+            header.style.borderBottomColor = '#dce3ef';
+            if (topBar) {
+              topBar.style.maxHeight = '0';
+              topBar.style.paddingTop = '0';
+              topBar.style.paddingBottom = '0';
+            }
+          } else {
+            header.classList.remove('shadow-sm');
+            header.style.borderBottomColor = 'transparent';
+            if (topBar) {
+              topBar.style.maxHeight = '';
+              topBar.style.paddingTop = '';
+              topBar.style.paddingBottom = '';
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-    });
+    }, { passive: true });
   }
 </script>

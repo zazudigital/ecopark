@@ -10,7 +10,18 @@ const serviceOptions = t('contact.form.serviceOptions') as Array<{ value: string
 const directions = t('contact.map.directions') as Array<{ label: string; description: string }>;
 ---
 
-<Layout title={t('contact.meta.title')} description={t('contact.meta.description')}>
+<Layout
+  title={t('contact.meta.title')}
+  description={t('contact.meta.description')}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": t('nav.home'), "item": `https://ecoparkbreda.nl${localePath(locale, '/')}` },
+      { "@type": "ListItem", "position": 2, "name": t('nav.contact'), "item": `https://ecoparkbreda.nl${localePath(locale, '/contact/')}` }
+    ]
+  }}
+>
   <!-- Hero -->
   <Hero
     title={t('contact.hero.title')}
@@ -40,20 +51,23 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
           </div>
 
           <form class="mt-8 space-y-6" action="#" method="POST" id="contact-form" novalidate>
+            <p class="text-sm font-medium text-gray-medium"><span class="text-red-600 font-bold" aria-hidden="true">*</span> = {t('formErrors.requiredIndicator')}</p>
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="naam" class="block text-base font-bold text-dark">{t('contact.form.nameLabel')}</label>
+                <label for="naam" class="block text-base font-bold text-dark">{t('contact.form.nameLabel')} <span class="text-red-600" aria-hidden="true">*</span></label>
                 <input
                   type="text"
                   id="naam"
                   name="naam"
                   required
                   aria-required="true"
+                  aria-describedby="naam-error"
                   maxlength="100"
                   autocomplete="name"
                   class="mt-2 block w-full border border-border bg-light px-4 py-3 text-dark placeholder-gray-muted transition-colors focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
                   placeholder={t('contact.form.namePlaceholder')}
                 />
+                <p id="naam-error" class="mt-1.5 hidden text-sm font-bold text-red-600" role="alert">{t('formErrors.required')}</p>
               </div>
               <div>
                 <label for="bedrijf" class="block text-base font-bold text-dark">{t('contact.form.companyLabel')}</label>
@@ -71,19 +85,21 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
 
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="email" class="block text-base font-bold text-dark">{t('contact.form.emailLabel')}</label>
+                <label for="email" class="block text-base font-bold text-dark">{t('contact.form.emailLabel')} <span class="text-red-600" aria-hidden="true">*</span></label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
                   aria-required="true"
+                  aria-describedby="email-error"
                   maxlength="254"
                   autocomplete="email"
                   inputmode="email"
                   class="mt-2 block w-full border border-border bg-light px-4 py-3 text-dark placeholder-gray-muted transition-colors focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
                   placeholder={t('contact.form.emailPlaceholder')}
                 />
+                <p id="email-error" class="mt-1.5 hidden text-sm font-bold text-red-600" role="alert">{t('formErrors.invalidEmail')}</p>
               </div>
               <div>
                 <label for="telefoon" class="block text-base font-bold text-dark">{t('contact.form.phoneLabel')}</label>
@@ -115,22 +131,24 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
             </div>
 
             <div>
-              <label for="bericht" class="block text-base font-bold text-dark">{t('contact.form.messageLabel')}</label>
+              <label for="bericht" class="block text-base font-bold text-dark">{t('contact.form.messageLabel')} <span class="text-red-600" aria-hidden="true">*</span></label>
               <textarea
                 id="bericht"
                 name="bericht"
                 rows="5"
                 required
                 aria-required="true"
+                aria-describedby="bericht-error"
                 maxlength="2000"
                 class="mt-2 block w-full border border-border bg-light px-4 py-3 text-dark placeholder-gray-muted transition-colors focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
                 placeholder={t('contact.form.messagePlaceholder')}
               ></textarea>
+              <p id="bericht-error" class="mt-1.5 hidden text-sm font-bold text-red-600" role="alert">{t('formErrors.required')}</p>
             </div>
 
             <!-- Response promise -->
             <div class="flex items-center gap-2 text-base text-gray-medium">
-              <svg class="h-4 w-4 shrink-0 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <svg class="h-4 w-4 shrink-0 text-secondary-dark" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>{t('contact.form.responsePromise')}</span>
@@ -158,7 +176,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
           <!-- Form success message (hidden by default) -->
           <div id="form-success" class="mt-6 hidden border border-secondary/30 bg-secondary/10 p-6" role="alert" tabindex="-1">
             <div class="flex items-start gap-3">
-              <svg class="h-6 w-6 shrink-0 text-secondary" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <svg class="h-6 w-6 shrink-0 text-secondary-dark" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div>
@@ -199,7 +217,7 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
                   </svg>
                   <div>
                     <p class="font-bold text-dark">{t('contact.sidebar.phoneLabel')}</p>
-                    <a href="tel:+31765720030" class="mt-1 block text-base font-bold text-secondary transition-colors duration-200 hover:text-secondary-dark">076 – 572 0030</a>
+                    <a href="tel:+31765720030" class="mt-1 block text-base font-bold text-secondary-dark transition-colors duration-200 hover:text-dark">076 – 572 0030</a>
                   </div>
                 </li>
 
@@ -321,9 +339,60 @@ const directions = t('contact.map.directions') as Array<{ label: string; descrip
   const submitSpinner = document.getElementById('submit-spinner');
   let isSubmitting = false;
 
+  function showError(id: string) {
+    const el = document.getElementById(id + '-error');
+    const input = document.getElementById(id);
+    if (el) el.classList.remove('hidden');
+    if (input) {
+      input.classList.add('border-red-500');
+      input.setAttribute('aria-invalid', 'true');
+    }
+  }
+
+  function clearError(id: string) {
+    const el = document.getElementById(id + '-error');
+    const input = document.getElementById(id);
+    if (el) el.classList.add('hidden');
+    if (input) {
+      input.classList.remove('border-red-500');
+      input.removeAttribute('aria-invalid');
+    }
+  }
+
+  function validateForm(): boolean {
+    let valid = true;
+    const naam = (document.getElementById('naam') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+    const bericht = (document.getElementById('bericht') as HTMLTextAreaElement).value.trim();
+
+    clearError('naam');
+    clearError('email');
+    clearError('bericht');
+
+    if (!naam) { showError('naam'); valid = false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email'); valid = false; }
+    if (!bericht) { showError('bericht'); valid = false; }
+
+    // Focus the first invalid field
+    if (!valid) {
+      const firstInvalid = form.querySelector('[aria-invalid="true"]') as HTMLElement;
+      if (firstInvalid) firstInvalid.focus();
+    }
+
+    return valid;
+  }
+
+  // Clear errors on input
+  ['naam', 'email', 'bericht'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => clearError(id));
+  });
+
   if (form && successMessage && submitBtn) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      if (!validateForm()) return;
 
       // Prevent double submit
       if (isSubmitting) return;

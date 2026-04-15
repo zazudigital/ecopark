@@ -402,6 +402,22 @@ const de = {
       ],
     },
   },
+
+  notFound: {
+    meta: {
+      title: 'Seite nicht gefunden',
+    },
+    heading: 'Seite nicht gefunden',
+    description: 'Die Seite, die Sie suchen, existiert nicht oder wurde verschoben. Bitte ueberpruefen Sie die URL oder kehren Sie zur Startseite zurueck.',
+    backHome: 'Zurueck zur Startseite',
+    backLabel: 'Zurueck',
+  },
+
+  formErrors: {
+    required: 'Dieses Feld ist erforderlich',
+    invalidEmail: 'Bitte geben Sie eine gueltige E-Mail-Adresse ein',
+    requiredIndicator: 'Erforderlich',
+  },
 } as const;
 
 export default de;

@@ -17,7 +17,27 @@ const services = t('diensten.services') as Array<{
 const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label: string }>;
 ---
 
-<Layout title={t('diensten.meta.title')} description={t('diensten.meta.description')}>
+<Layout
+  title={t('diensten.meta.title')}
+  description={t('diensten.meta.description')}
+  schema={[
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": t('nav.home'), "item": `https://ecoparkbreda.nl${localePath(locale, '/')}` },
+        { "@type": "ListItem", "position": 2, "name": t('nav.diensten'), "item": `https://ecoparkbreda.nl${localePath(locale, '/diensten/')}` }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "provider": { "@type": "LocalBusiness", "name": "Ecopark Breda B.V." },
+      "serviceType": "Waste transshipment and logistics",
+      "areaServed": { "@type": "City", "name": "Breda" }
+    }
+  ]}
+>
   <!-- Hero -->
   <Hero
     title={t('diensten.hero.title')}
@@ -43,7 +63,7 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
               <div class="lg:col-span-6 min-w-0">
                 <h3 class="text-2xl font-black text-dark text-balance break-words sm:text-3xl">{service.title}</h3>
                 {service.id === 'binnenvaart' && (
-                  <span class="spec-label mt-3 inline-block border border-secondary bg-secondary/5 px-3 py-1 text-secondary">{t('diensten.comingSoon')}</span>
+                  <span class="spec-label mt-3 inline-block border border-secondary bg-secondary/5 px-3 py-1 text-secondary-dark">{t('diensten.comingSoon')}</span>
                 )}
                 <p class="mt-4 text-base leading-relaxed text-gray-medium max-w-prose">{service.description}</p>
               </div>
@@ -68,7 +88,7 @@ const vihbLetters = t('diensten.vihb.letters') as Array<{ letter: string; label:
 
   <!-- Visual break -->
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
-    <img src="/images/containers.jpg" alt={t('diensten.containersAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover object-center" style="aspect-ratio: 800/600;" />
+    <img src="/images/containers.jpg" alt={t('diensten.containersAlt')} loading="lazy" decoding="async" width="800" height="600" class="w-full h-64 object-cover object-center" style="aspect-ratio: 800/600;" />
   </div>
 
   <!-- VIHB Section -->

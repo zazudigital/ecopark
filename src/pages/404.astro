@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslations, localePath, type Locale } from '../i18n';
+
+const locale = (Astro.currentLocale || 'nl') as Locale;
+const t = useTranslations(locale);
+---
+
+<Layout title={t('notFound.meta.title')}>
+  <section class="bg-white py-32 lg:py-44">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="stat-number text-8xl text-primary lg:text-9xl">404</span>
+        <h1 class="mt-6 text-3xl font-black tracking-tight text-dark sm:text-4xl lg:text-5xl">
+          {t('notFound.heading')}
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-gray-medium max-w-prose mx-auto">
+          {t('notFound.description')}
+        </p>
+        <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={localePath(locale, '/')}
+            class="btn inline-flex items-center gap-2 border-2 border-secondary bg-secondary px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:bg-secondary-dark hover:border-secondary-dark hover:shadow-lg"
+          >
+            {t('notFound.backHome')}
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <button
+            type="button"
+            onclick="history.back()"
+            class="btn inline-flex items-center gap-2 border-2 border-primary/30 px-8 py-4 text-base font-bold text-primary transition-all duration-200 hover:border-primary hover:bg-primary/5"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            {t('notFound.backLabel')}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

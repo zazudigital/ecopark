@@ -402,6 +402,22 @@ const en = {
       ],
     },
   },
+
+  notFound: {
+    meta: {
+      title: 'Page Not Found',
+    },
+    heading: 'Page Not Found',
+    description: 'The page you are looking for does not exist or has been moved. Please check the URL or return to the homepage.',
+    backHome: 'Back to home',
+    backLabel: 'Go back',
+  },
+
+  formErrors: {
+    required: 'This field is required',
+    invalidEmail: 'Please enter a valid email address',
+    requiredIndicator: 'Required',
+  },
 } as const;
 
 export default en;

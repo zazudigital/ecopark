@@ -16,34 +16,44 @@ const benefits = t('home.future.benefits') as Array<string>;
 <Layout
   title={t('home.meta.title')}
   description={t('home.meta.description')}
-  schema={{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Ecopark Breda B.V.",
-    "description": t('home.meta.description'),
-    "url": "https://ecoparkbreda.nl",
-    "telephone": "+31765720030",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Nieuwe Bredase Baan 30",
-      "addressLocality": "Breda",
-      "postalCode": "4825 BP",
-      "addressCountry": "NL"
+  schema={[
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Ecopark Breda B.V.",
+      "description": t('home.meta.description'),
+      "url": "https://ecoparkbreda.nl",
+      "telephone": "+31765720030",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nieuwe Bredase Baan 30",
+        "addressLocality": "Breda",
+        "postalCode": "4825 BP",
+        "addressCountry": "NL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.5783,
+        "longitude": 4.7738
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": ["https://www.linkedin.com/company/ecopark-breda"]
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 51.5783,
-      "longitude": 4.7738
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
-      }
-    ]
-  }}
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ecopark Breda",
+      "url": "https://ecoparkbreda.nl",
+      "inLanguage": ["nl", "en", "de"]
+    }
+  ]}
 >
   <!-- Hero Section with Stats integrated -->
   <Hero
@@ -55,11 +65,11 @@ const benefits = t('home.future.benefits') as Array<string>;
   <!-- Certification Bar -->
   <div class="bg-dark py-6" data-animate="fade-up">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-center gap-8 lg:gap-12 text-white/80 text-base font-bold">
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 lg:gap-12 text-white/80 text-base font-bold">
         <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">VIHB</span> {t('certBar.vihb')}</span>
-        <span class="w-px h-4 bg-white/20" aria-hidden="true"></span>
+        <span class="hidden w-px h-4 bg-white/20 sm:block" aria-hidden="true"></span>
         <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">ISO</span> {t('certBar.iso')}</span>
-        <span class="w-px h-4 bg-white/20" aria-hidden="true"></span>
+        <span class="hidden w-px h-4 bg-white/20 sm:block" aria-hidden="true"></span>
         <span class="flex items-center gap-2"><span class="text-secondary font-bold text-lg">24/7</span> {t('certBar.security')}</span>
       </div>
     </div>
@@ -85,7 +95,7 @@ const benefits = t('home.future.benefits') as Array<string>;
       </div>
 
       <div class="mb-12" data-animate="fade-up">
-        <img src="/images/trucks.jpg" alt={t('home.services.trucksAlt')} loading="lazy" width="800" height="600" class="w-full h-64 object-cover object-center" style="aspect-ratio: 800/600;" />
+        <img src="/images/trucks.jpg" alt={t('home.services.trucksAlt')} loading="lazy" decoding="async" width="800" height="600" class="w-full h-64 object-cover object-center" style="aspect-ratio: 800/600;" />
       </div>
 
       <div data-animate-stagger>
@@ -123,7 +133,7 @@ const benefits = t('home.future.benefits') as Array<string>;
       </div>
 
       <div class="mb-12" data-animate="fade-up">
-        <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" width="800" height="600" class="w-full h-56 object-cover object-center" style="aspect-ratio: 800/600;" />
+        <img src="/images/warehouse.jpg" alt={t('home.facility.warehouseAlt')} loading="lazy" decoding="async" width="800" height="600" class="w-full h-56 object-cover object-center" style="aspect-ratio: 800/600;" />
       </div>
 
       <div class="border border-border" data-animate="fade-up">
@@ -148,7 +158,7 @@ const benefits = t('home.future.benefits') as Array<string>;
     <div class="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-20">
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div data-animate="blur-in">
-          <span class="spec-label inline-block border border-secondary bg-secondary/5 px-3 py-1 mb-6 text-secondary">{t('home.future.badge')}</span>
+          <span class="spec-label inline-block border border-secondary bg-secondary/5 px-3 py-1 mb-6 text-secondary-dark">{t('home.future.badge')}</span>
           <h2 id="future-heading" class="text-3xl font-black text-dark text-balance sm:text-4xl lg:text-5xl">
             {t('home.future.heading')}
           </h2>

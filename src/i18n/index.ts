@@ -4,7 +4,7 @@ import de from './translations/de';
 
 export type Locale = 'nl' | 'en' | 'de';
 
-const translations: Record<Locale, typeof nl> = { nl, en, de };
+const translations = { nl, en, de } as const;
 
 function getNestedValue(obj: any, key: string): any {
   return key.split('.').reduce((o, k) => o?.[k], obj);

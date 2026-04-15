@@ -402,6 +402,22 @@ const nl = {
       ],
     },
   },
+
+  notFound: {
+    meta: {
+      title: 'Pagina niet gevonden',
+    },
+    heading: 'Pagina niet gevonden',
+    description: 'De pagina die u zoekt bestaat niet of is verplaatst. Controleer het webadres of keer terug naar de homepage.',
+    backHome: 'Terug naar home',
+    backLabel: 'Ga terug',
+  },
+
+  formErrors: {
+    required: 'Dit veld is verplicht',
+    invalidEmail: 'Voer een geldig e-mailadres in',
+    requiredIndicator: 'Verplicht',
+  },
 } as const;
 
 export default nl;
